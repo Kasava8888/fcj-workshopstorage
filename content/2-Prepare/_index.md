@@ -1,5 +1,5 @@
 ---
-title : "Preparation"
+title : "Deploy Cross-account and Cross-region VPC environments"
 date : "`r Sys.Date()`"
 weight : 2
 chapter : false
