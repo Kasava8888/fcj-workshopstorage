@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Giới thiệu :: AWS System Manager</title>
+
+    
+    <link href="/css/nucleus.css?1712656919" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1712656919" rel="stylesheet">
+    <link href="/css/hybrid.css?1712656919" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1712656919" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1712656919" rel="stylesheet">
+    <link href="/css/auto-complete.css?1712656919" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1712656919" rel="stylesheet">
+    <link href="/css/theme.css?1712656919" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1712656919" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1712656919" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1712656919"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/1-introduce/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1712656919"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1712656919"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1712656919"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/vi/1-introduce/">
+           <b> 1. </b> Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/" title="Triển khai môi trường VPC Cross-account và Cross-region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/">
+           <b> 2. </b> Triển khai môi trường VPC Cross-account và Cross-region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.1-orga/" title="Sử dụng Organization" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.1-orga/">
+           <b> 2.1. </b> Sử dụng Organization
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.2-sso/" title="Sử dụng Single-Sign-On" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.2-sso/">
+           <b> 2.2. </b> Sử dụng Single-Sign-On
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.3-tgw/" title="Triển khai peering với Transit gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.3-tgw/">
+           <b> 2.3. </b> Triển khai peering với Transit gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-efs/" title="Triển khai EFS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-efs/">
+           <b> 3. </b> Triển khai EFS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-efs/3.1-createefs/" title="Tạo EFS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-efs/3.1-createefs/">
+           <b> 3.1. </b> Tạo EFS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-efs/3.2-efsconf/" title="Cấu hình sử dụng EFS tại các máy chủ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-efs/3.2-efsconf/">
+           <b> 3.2. </b> Cấu hình sử dụng EFS tại các máy chủ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-efs/3.3-result/" title="Kết quả" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-efs/3.3-result/">
+           <b> 3.3. </b> Kết quả
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-filegw/" title="Triển khai File Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-filegw/">
+           <b> 4. </b> Triển khai File Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-filegw/4.1-s3ec2create/" title="Tạo S3 Bucket và Agent cho Storage Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-filegw/4.1-s3ec2create/">
+           <b> 4.1. </b> Tạo S3 Bucket và Agent cho Storage Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-filegw/4.2-filegwcreate/" title="Tạo File Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-filegw/4.2-filegwcreate/">
+           <b> 4.2. </b> Tạo File Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-filegw/4.3-filesharecreate/" title="Tạo Fileshare" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-filegw/4.3-filesharecreate/">
+           <b> 4.3. </b> Tạo Fileshare
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-filegw/4.4-configresult/" title="Cấu hình ở on-premise và kiểm tra kết quả " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-filegw/4.4-configresult/">
+           <b> 4.4. </b> Cấu hình ở on-premise và kiểm tra kết quả 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-datasync/" title="Triển khai DataSync" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-datasync/">
+           <b> 5. </b> Triển khai DataSync
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-datasync/5.1-createtask/" title="Tạo Task" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-datasync/5.1-createtask/">
+           <b> 5.1. </b> Tạo Task
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-datasync/5.2-result/" title="Kết quả" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-datasync/5.2-result/">
+           <b> 5.2. </b> Kết quả
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-cleanup/">
+          <b>6. </b>Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/1-introduce/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/1-introduce/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>PrivateLink</a> > Giới thiệu
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#giới-thiệu-về-aws-organization">Giới thiệu về AWS Organization</a></li>
+    <li><a href="#giới-thiệu-về-aws-single-sign-on">Giới thiệu về AWS Single-Sign-On</a></li>
+    <li><a href="#giới-thiệu-về-aws-transit-gateway">Giới thiệu về AWS Transit Gateway</a></li>
+    <li><a href="#giới-thiệu-về-aws-efs">Giới thiệu về AWS EFS</a></li>
+    <li><a href="#giới-thiệu-về-aws-file-storage-gateway">Giới thiệu về AWS File Storage Gateway</a></li>
+    <li><a href="#giới-thiệu-về-datasync">Giới thiệu về DataSync</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Giới thiệu
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="giới-thiệu-về-aws-organization">Giới thiệu về AWS Organization</h2>
+<p><strong>AWS Organizations</strong> là dịch vụ quản lý tài khoản cho phép bạn hợp nhất nhiều tài khoản AWS thành một tổ chức do bạn tạo và quản lý tập trung. <strong>AWS Organizations</strong> bao gồm khả năng quản lý tài khoản và thanh toán tổng hợp cho phép bạn đáp ứng tốt hơn các nhu cầu về ngân sách, bảo mật và tuân thủ của doanh nghiệp mình. Với tư cách là quản trị viên của một tổ chức, bạn có thể tạo tài khoản trong tổ chức của mình và mời các tài khoản hiện có tham gia tổ chức.</p>
+<ul>
+<li>
+<p><strong>AWS Organization</strong>: Đây là tập hợp các tài khoản AWS được tổ chức lại theo một cách cụ thể, giúp bạn quản lý chúng một cách dễ dàng hơn.</p>
+</li>
+<li>
+<p><strong>Organizational Unit (OU)</strong>: Một phân đơn vị trong <strong>AWS Organization</strong>, cho phép bạn nhóm các tài khoản lại với nhau. Mỗi OU có thể chứa nhiều OU con khác.</p>
+</li>
+<li>
+<p><strong>Management Account</strong>: Đây là tài khoản quản lý có quyền cao nhất trong <strong>AWS Organization</strong>. Tài khoản này có thể kiểm soát tất cả các tài khoản khác và chịu trách nhiệm về việc thanh toán chi phí tổng hợp của các tài khoản thành viên.</p>
+</li>
+</ul>
+<h2 id="giới-thiệu-về-aws-single-sign-on">Giới thiệu về AWS Single-Sign-On</h2>
+<p><strong>AWS IAM Identity Center (SSO)</strong> là dịch vụ AWS được khuyên dùng để quản lý quyền truy cập của người dùng vào tài nguyên AWS. Đây là nơi duy nhất mà bạn có thể chỉ định người dùng trong lực lượng lao động của mình, còn được gọi là danh tính lực lượng lao động , quyền truy cập nhất quán vào nhiều tài khoản và ứng dụng AWS. <strong>AWS IAM Identity Center</strong> được cung cấp miễn phí.</p>
+<p>Với <strong>AWS IAM Identity Center</strong>, bạn có thể tạo hoặc kết nối người dùng trong lực lượng lao động và quản lý tập trung quyền truy cập của họ trên tất cả các tài khoản và ứng dụng AWS của họ. Bạn có thể sử dụng quyền của nhiều tài khoản để cấp quyền truy cập cho người dùng trong lực lượng lao động của mình vào tài khoản AWS. Bạn có thể sử dụng chức năng gán ứng dụng để gán cho người dùng quyền truy cập vào các ứng dụng do khách hàng quản lý và do AWS quản lý.</p>
+<h2 id="giới-thiệu-về-aws-transit-gateway">Giới thiệu về AWS Transit Gateway</h2>
+<p>Để giải quyết giới hạn của <strong>Peering Conenction</strong>, <strong>AWS Transite Gateway</strong> được dùng để kết nối các <strong>VPC</strong> và mạng <strong>on-premises</strong> thông qua một hub trung tâm. Điều này đơn giản hoá mạng và kết thúc các mối quan hệ định tuyến phức tạp. Nó hoạt động như một cloud router - mỗi kết nối mới chỉ thực hiện 1 lần.</p>
+<p><strong>AWS Transit Gateway Attachment</strong> là một công cụ để gán các subnet của từng <strong>VPC</strong> cần kết nối với nhau vào một <strong>TGW</strong> đã được khởi tạo. <strong>Transit Gateway Attachment</strong> hoạt động dựa trên quy mô của <strong>Availability Zone</strong> (AZ-level). Trong <strong>VPC</strong>, khi một subnet ở một <strong>AZ</strong> có <strong>Transit Gateway Attachment</strong> với một <strong>TGW</strong>, các subnet khác trong cùng <strong>AZ</strong> đều có thể kết nối tới <strong>TGW</strong> đó</p>
+<h2 id="giới-thiệu-về-aws-efs">Giới thiệu về AWS EFS</h2>
+<p><strong>Amazon Elastic File System (Amazon EFS)</strong> cung cấp khả năng lưu trữ tệp hoàn toàn linh hoạt, không cần máy chủ để bạn có thể chia sẻ dữ liệu tệp mà không cần cung cấp hay quản lý dung lượng và hiệu suất lưu trữ. <strong>Amazon EFS</strong> được xây dựng để mở rộng quy mô lên petabyte theo yêu cầu mà không làm gián đoạn ứng dụng, tự động tăng và thu nhỏ khi bạn thêm và xóa tệp. Vì <strong>Amazon EFS</strong> có giao diện dịch vụ web đơn giản nên bạn có thể tạo và đặt cấu hình hệ thống tệp một cách nhanh chóng và dễ dàng. Dịch vụ này quản lý tất cả cơ sở hạ tầng lưu trữ tệp cho bạn, nghĩa là bạn có thể tránh được sự phức tạp khi triển khai, vá lỗi và duy trì các cấu hình hệ thống tệp phức tạp.</p>
+<p><strong>Amazon EFS</strong> hỗ trợ giao thức <strong>Network File System</strong> phiên bản 4 (<strong>NFSv4.1</strong> và <strong>NFSv4.0</strong>), do đó, các ứng dụng và công cụ mà bạn sử dụng ngày nay hoạt động liền mạch với <strong>Amazon EFS</strong>. <strong>Amazon EFS</strong> có thể truy cập được trên hầu hết các loại phiên bản điện toán của <strong>Amazon Web Services</strong>, bao gồm <strong>Amazon EC2, Amazon ECS, Amazon EKS, AWS Lambda và AWS Fargate</strong>.</p>
+<p>Dịch vụ này được thiết kế để có khả năng mở rộng cao, tính sẵn sàng cao và độ bền cao. <strong>Amazon EFS</strong> cung cấp các loại hệ thống tệp sau để đáp ứng nhu cầu về độ khả dụng và độ bền của bạn:</p>
+<p><strong>Regional</strong> (Được khuyến nghị) – Hệ thống tệp khu vực (được khuyến nghị) lưu trữ dữ liệu dự phòng trên nhiều Vùng sẵn sàng được phân tách theo địa lý trong Khu vực AWS. Việc lưu trữ dữ liệu trên nhiều Vùng sẵn sàng mang lại tính khả dụng liên tục cho dữ liệu, ngay cả khi một hoặc nhiều Vùng sẵn sàng trong Khu vực AWS không khả dụng.</p>
+<p><strong>One Zone</strong> – Hệ thống tệp một vùng lưu trữ dữ liệu trong một Vùng sẵn sàng duy nhất trong Khu vực AWS. Việc lưu trữ dữ liệu trong một Vùng sẵn sàng duy nhất cung cấp tính khả dụng liên tục cho dữ liệu. Tuy nhiên, trong trường hợp không chắc xảy ra mất mát hoặc hư hỏng toàn bộ hoặc một phần Vùng sẵn sàng, dữ liệu được lưu trữ trong các loại hệ thống tệp này có thể bị mất.</p>
+<h2 id="giới-thiệu-về-aws-file-storage-gateway">Giới thiệu về AWS File Storage Gateway</h2>
+<p><strong>File Gateway</strong> của AWS là giải pháp sao lưu và khôi phục dữ liệu <strong>On-premises</strong> tối ưu, hỗ trợ các giao thức tiêu chuẩn như <strong>NFS</strong> và <strong>SMB</strong>, tích hợp sâu vào <strong>Amazon S3</strong>. Điểm đặc biệt là việc tối ưu hóa chi phí và dung lượng, cho phép doanh nghiệp giảm bớt gánh nặng về lưu trữ <strong>On-premises</strong>. Thêm vào đó, bộ nhớ cache cục bộ của <strong>File Gateway</strong> giúp tăng cường tốc độ và giảm độ trễ, nâng cao khả năng khôi phục dữ liệu một cách nhanh chóng. Ngoài ra việc tích hợp <strong>S3 Lifecycle Policies</strong> cung cấp khả năng lưu trữ tự động vào các tier có chi phí thấp hơn, như <strong>Amazon S3 Glacier</strong>, đem lại linh hoạt và hiệu quả trong việc quản lý dữ liệu.</p>
+<h2 id="giới-thiệu-về-datasync">Giới thiệu về DataSync</h2>
+<p><strong>AWS DataSync</strong> là dịch vụ bảo mật trực tuyến giúp tự động hóa và đẩy nhanh quá trình di chuyển dữ liệu giữa không gian lưu trữ tại chỗ và dịch vụ Lưu trữ của <strong>AWS</strong>. <strong>DataSync</strong> có thể sao chép dữ liệu giữa giao thức chia sẻ Hệ thống tệp mạng (<strong>NFS</strong>), giao thức chia sẻ Khối thông điệp máy chủ (<strong>SMB</strong>), Hệ thống tệp phân tán <strong>Hadoop (HDFS)</strong>, vị trí lưu trữ đối tượng tự quản lý, <strong>AWS Snowcone</strong>, vùng lưu trữ trên Dịch vụ lưu trữ đơn giản của <strong>Amazon</strong> (<strong>Amazon S3</strong>), hệ thống tệp trên Hệ thống tệp linh hoạt của <strong>Amazon</strong> (<strong>Amazon EFS</strong>), hệ thống tệp <strong>Amazon FSx</strong> dành cho <strong>Windows File Server</strong>, hệ thống tệp <strong>Amazon FSx</strong> dành cho <strong>Lustre</strong>, hệ thống tệp <strong>Amazon FSz</strong> dành cho <strong>OpenZFS</strong> và hệ thống tệp <strong>Amazon FSx</strong> dành cho <strong>NetApp ONTAP</strong>.</p>
+<p><strong>AWS DataSync</strong> còn được dùng để truyền dữ liệu giữa các dịch vụ lưu trữ của <strong>AWS</strong>, giúp bạn dễ dàng sao chép, lưu trữ hoặc chia sẻ dữ liệu ứng dụng.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/" title="PrivateLink"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/2-prepare/" title="Triển khai môi trường VPC Cross-account và Cross-region" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1712656919"></script>
+    <script src="/js/perfect-scrollbar.min.js?1712656919"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1712656919"></script>
+    <script src="/js/jquery.sticky.js?1712656919"></script>
+    <script src="/js/featherlight.min.js?1712656919"></script>
+    <script src="/js/highlight.pack.js?1712656919"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1712656919"></script>
+    <script src="/js/learn.js?1712656919"></script>
+    <script src="/js/hugo-learn.js?1712656919"></script>
+
+    <link href="/mermaid/mermaid.css?1712656919" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1712656919"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

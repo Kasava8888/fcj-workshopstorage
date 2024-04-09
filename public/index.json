@@ -1,0 +1,148 @@
+[
+{
+	"uri": "//localhost:1313/",
+	"title": "PrivateLink",
+	"tags": [],
+	"description": "",
+	"content": "Deploy a hybrid storage solution using EFS, Filegateway and DataSync Solution architecture overview Requirements On on-premise environment Deploy File gateway to store data from on-premise to S3 File Gateway On Cloud environment 4 VPCs belonging to 2 branches in 2 regions, 2 different accounts will connect to each other and use EFS to store data necessary for business.\nDeploy DataSync to automatically copy data from EFS to S3 File Gateway to serve on-premise users\nContent Introduction Deploy Cross-account and Cross-region VPC environment EFS Deployment File Gateway Deployment DataSync Deployment Cleanup "
+},
+{
+	"uri": "//localhost:1313/3-efs/3.1-createefs/",
+	"title": "Create EFS",
+	"tags": [],
+	"description": "",
+	"content": " In the AWS Management Console interface of the Root account, select EFS In the EFS interface Create file system Select Customize Enter Name : efs\nFile system type: One Zone\nAvailability Zone: us-east-1a Transition into Archive : None\nThroughput mode: bursting\nNext Select VPC1\nSelect Security group : Sgec2vpc1\nNext Next Create Create success "
+},
+{
+	"uri": "//localhost:1313/4-filegw/4.1-s3ec2create/",
+	"title": "Create S3 Bucket and Agent for Storage Gateway",
+	"tags": [],
+	"description": "",
+	"content": " On Root account, create S3 Bucket In the S3 interface, select Create bucket In the bucket creation interface, enter Bucket name, Bucket name must be unique Leave it as default, scroll down and Create bucket 2. On Root account, create Agent for Storage Gateway\nIn AWS Management Console, select Storage Gateway In Storage Gateway, select Create gateway Enter Gateway name: filegw Gateway type: Amazon S3 File Gateway Launch Instance In the Launch instance interface, enter Name: agent Type: m4.large Choose an existing key pair or create a key pair Add http and smb rules for security groups Configure storage: select Add new volume Add 150gb gp3 volume and Launch instance Created successfully "
+},
+{
+	"uri": "//localhost:1313/5-datasync/5.1-createtask/",
+	"title": "Create Task",
+	"tags": [],
+	"description": "",
+	"content": " Create Task to move data from EFS to S3 Bucket on Root account In the AWS Management Console interface, select DataSync In DataSync interface, select Tasks in the left control bar, select Create task Create a new location Location type: EFS** Region: US East File system: efs we have created Subnet: Pubsubvpc1 Security groups: SGec2vpc1 Select TLS 1.2 Other options leave default -\u0026gt; Next Location type: S3 Region: US East S3 bucket: Select the bucket we created Folder: enter filegw/ IAM role: Select Auto Generated Select Next Transfer mode: Transfer all data Leave other options as default -\u0026gt; Next Scroll down -\u0026gt; Create task Run Task Select Start -\u0026gt; Start with defaults Run successfully, wait until it says complete "
+},
+{
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Introducing the AWS Organization AWS Organizations is an account management service that allows you to consolidate multiple AWS accounts into one organization that you create and centrally manage. AWS Organizations includes consolidated billing and account management capabilities that enable you to better meet the budgeting, security, and compliance needs of your business. As an admin of an organization, you can create accounts in your organization and invite existing accounts to join your organization.\nAWS Organization: This is a collection of AWS accounts organized in a specific way, helping you manage them more easily.\nOrganizational Unit (OU): A subdivision within AWS Organization, allowing you to group accounts together. Each OU can contain many other child OUs.\nManagement Account: This is the management account with the highest authority in AWS Organization. This account can control all other accounts and is responsible for paying aggregate fees of member accounts.\nIntroducing AWS Single-Sign-On AWS IAM Identity Center (SSO) is a recommended AWS service for managing user access to AWS resources. This is the only place where you can assign users in your workforce, also known as workforce identities, consistent access to multiple AWS accounts and applications. AWS IAM Identity Center is available at no additional charge.\nWith AWS IAM Identity Center, you can create or connect workforce users and centrally manage their access across all their AWS accounts and applications. You can use cross-account permissions to give users in your workforce access to your AWS account. You can use application assignments to assign users access to customer-managed and AWS-managed applications.\nIntroducing AWS Transit Gateway To address the limitation of Peering Conenction, AWS Transite Gateway is used to connect VPCs and on-premises networks through a central hub. This simplifies the network and ends complex routing relationships. It works like a cloud router - each new connection is only made once.\nAWS Transit Gateway Attachment is a tool to assign subnets of each VPC that need to connect to each other into an initialized TGW. Transit Gateway Attachment operates based on the scale of the Availability Zone (AZ-level). In VPC, when a subnet in an AZ has a Transit Gateway Attachment with a TGW, other subnets in the same AZ can connect to that TGW\nIntroducing AWS EFS Amazon Elastic File System (Amazon EFS) provides completely flexible, serverless file storage so you can share file data without provisioning or managing capacity and performance storage. Amazon EFS is built to scale up to petabytes on demand without application disruption, automatically growing and shrinking as you add and remove files. Because Amazon EFS has a simple web services interface, you can create and configure file systems quickly and easily. It manages all of your file storage infrastructure for you, meaning you can avoid the hassle of deploying, patching, and maintaining complex file system configurations. Amazon EFS supports Network File System protocol version 4 (NFSv4.1 and NFSv4.0), so the applications and tools you use Today\u0026rsquo;s apps work seamlessly with Amazon EFS. Amazon EFS is accessible on most Amazon Web Services compute instance types, including Amazon EC2, Amazon ECS, Amazon EKS, AWS Lambda, and AWS Fargate.\nThe service is designed for high scalability, high availability, and durability. Amazon EFS offers the following file system types to meet your availability and durability needs:\nRegional (Recommended) – Regional file systems (recommended) store redundant data across multiple geographically separated Availability Zones within an AWS Region. Storing data across multiple Availability Zones provides continuous availability of data, even when one or more Availability Zones in an AWS Region are unavailable.\nOne Zone – A single zone file system stores data in a single Availability Zone within an AWS Region. Storing data in a single Availability Zone provides continuous data availability. However, in the unlikely event of loss or damage to all or part of an Availability Zone, data stored in these types of file systems may be lost.\nIntroducing AWS File Storage Gateway AWS\u0026rsquo;s File Gateway is the ultimate On-premises data backup and recovery solution, supporting standard protocols such as NFS and SMB, integrated deep into Amazon S3. A special feature is the optimization of cost and capacity, allowing businesses to reduce the burden of On-premises storage. Additionally, File Gateway\u0026rsquo;s local cache enhances speed and reduces latency, enhancing the ability to recover data quickly. Additionally, the integration of S3 Lifecycle Policies provides automatic storage capabilities into lower-cost tiers, such as Amazon S3 Glacier, providing flexibility and efficiency in data management.\nAbout DataSync AWS DataSync is an online security service that automates and accelerates data movement between on-premises storage and AWS Storage services. DataSync can copy data between Network File System (NFS) share protocol, Server Message Block (SMB) share protocol, Distributed File System Hadoop (HDFS), self-managed object storage, AWS Snowcone, bucket on Amazon Simple Storage Service (Amazon S3) , file system on Amazon Elastic File System** (Amazon EFS), Amazon FSx file system for Windows File Server, Amazon file system FSx is for Lustre, Amazon FSz file system is for OpenZFS and Amazon FSx file system is for NetApp ONTAP.\nAWS DataSync is also used to transfer data between AWS storage services, making it easy to copy, store, or share application data.\n"
+},
+{
+	"uri": "//localhost:1313/2-prepare/2.1-orga/",
+	"title": "Use Organization",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will use Organization to create OU and Aws account\nIn the AWS Management Console interface, find Organization In the Organization interface Select AWS account on the left panel Select the box Root -\u0026gt; Actions -\u0026gt; Create new In the OU creation interface Enter Organiational unit name : Dev Select Create Organizational unit In the Organization interface Select AWS account on the left panel Select Add an AWS account In the account creation interface Enter AWS accounts name: DevUser Enter email Click Create AWS account and wait for the creation to complete Move the newly created account to OU Select the box DevUser -\u0026gt; Actions -\u0026gt; Move In the Destination section, click Dev OU -\u0026gt; Move AWS account "
+},
+{
+	"uri": "//localhost:1313/3-efs/3.2-efsconf/",
+	"title": "Configure EFS at servers",
+	"tags": [],
+	"description": "",
+	"content": " Configure security group In the EC2 interface, select Security groups on the left panel, select SGec2vpc1 -\u0026gt; Inbound rules -\u0026gt; Edit inbound rules Add rule to allow NFS Save rules Make a mount to each server At EFS interface, select efs Attach Select Mount via IP, copy mount command Go to server1, edit the mount command again and run the following series of commands Do the same with server2 Do the same with server3 Do the same with server4 Configure the /etc/fstab file to mount automatically every time the server starts vi /etc/fstab Enter i to enter insert mode, add the following line to the configuration file \u0026lt;ip\u0026gt;:/ /efs nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 0 0 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport taken from the copy command from efs Press the Esc button, enter :wq! - \u0026gt; enter to save the file "
+},
+{
+	"uri": "//localhost:1313/4-filegw/4.2-filegwcreate/",
+	"title": "Create File Gateway",
+	"tags": [],
+	"description": "",
+	"content": " Wait for Agent to finish creating and return to the Gateway Storage creation interface Select the box I completed all the steps above and launch the EC2 Instance -\u0026gt; Next Copy the public ip of agent and enter -\u0026gt; Puclic accessible -\u0026gt; Next Select Deactive logging Select No alarm Select Configure Configure guest access SMB In the Storage Gateway interface, select filegw -\u0026gt; Actions -\u0026gt; Edit SMB settings -\u0026gt; Guest access settings Enter password -\u0026gt; Save changes "
+},
+{
+	"uri": "//localhost:1313/2-prepare/",
+	"title": "Preparation",
+	"tags": [],
+	"description": "",
+	"content": "In this exercise, we will build the following architecture: Content Using Organization Using Single-Sign-On Deploy peering with Transite gateway "
+},
+{
+	"uri": "//localhost:1313/5-datasync/5.2-result/",
+	"title": "Result",
+	"tags": [],
+	"description": "",
+	"content": " After data copying is completed Checking S3 bucket we see that the data has been copied successfully Perform a cache refresh on the shared file or wait up to 5 minutes and the cache will automatically refresh once Check the drive on the personal computer to see that the data has been synchronized successfully "
+},
+{
+	"uri": "//localhost:1313/2-prepare/2.2-sso/",
+	"title": "Use Single-Sign-On",
+	"tags": [],
+	"description": "",
+	"content": "Enable SSO In AWS Management Console, Select IAM Identity Center Select Enable Create Group In the SSO interface Select Groups from the left panel -\u0026gt; Create group In the Group creation interface Enter Group name : DevGroup Select Create group Create User In the SSO interface Select Users from the left panel -\u0026gt; Add user In the user creation interface Enter Username : DevUser In Password section, select Send an email Enter email and information Click Next Select the box DevGroup -\u0026gt; Next Scroll to the bottom and select Add user Added user successfully Check the root account\u0026rsquo;s email Click Accept invitation Set up password for SSO account Register for MFA using the Authenticator app method Download the Goole Authenticator app and scan the QR code Create Permission sets In the SSO interface Select Permission sets from the left panel -\u0026gt; Select Create permission set In the interface create permission set In the type section, select Predefined permission set In the Policy for predefined permission set section, select AdministratorAccess -\u0026gt; Next Next Proceed to Assign user organization In the SSO interface Select AWS accounts from the left panel Select the DevUser box in OU Dev -\u0026gt; Select Assign users or groups In the interface assign users and groups Select the box DevGroup -\u0026gt; Next Select the box AdministratorAccess -\u0026gt; Next Submit Login using SSO In the SSO interface Select Dashboard from the left panel, copy AWS access portal URL In the login interface Enter account, password and MFA authentication Choose to log in to DevUser with AdministratorAccess rights Logged in successfully "
+},
+{
+	"uri": "//localhost:1313/4-filegw/4.3-filesharecreate/",
+	"title": "Create Fileshare",
+	"tags": [],
+	"description": "",
+	"content": " In the Storage Gateway interface, select Gateways from the left panel, select the box filesgw -\u0026gt; Create file share Gateway: select filesgw\nFile sharing protocol: SMB\nS3 Bucket: select the Bucket you created\nUser authentication: Guest access\nSelect Customize configuration S3 prefix name: filegw/\nFile share name: haidang Scroll down to select Set refresh interval, set to 5 minutes\nNext Leave as default, select Next Authentication method: Guest access -\u0026gt; Next Select Create Created successfully "
+},
+{
+	"uri": "//localhost:1313/2-prepare/2.3-tgw/",
+	"title": "Deploy peering with Transit gateway",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we will deploy Peering VPC with Transit Gateway according to the following architecture Use CloudFormation to deploy a peering configured environment between VPCs in each account Account root 2 VPCs: VPC1 and VPC2 belong to region us-east-1, each VPC has 1 Public subnet 2 EC2 Instances: Server1 and Server2 1 Transit Gateway has 2 Transit Gateway Attachments: TGA1 belongs to VPC1, TGA2 belongs to VPC2 Account DevUser 2 VPCs: VPC1 and VPC2 belong to region ap-southeast-1, each VPC has 1 Public subnet 2 EC2 Instances: Server1 and Server2 1 Transit Gateway has 2 Transit Gateway Attachments: TGA1 belongs to VPC1, TGA2 belongs to VPC2 At the root account in Region N.Virginia Download template to use Template1.yaml\nIn the CloudFormation interface Select Create stack Select Choose an existing template, select Upload a template file -\u0026gt; Choose file to upload the downloaded file -\u0026gt; Next Enter Stack name: transitgw -\u0026gt; Next Leave as default, scroll down and Next Leave as default, scroll down and Submit Create success Wait for the status to change to Complete 3. Connect to Server1 and Server2 and ping between the two servers to check if peering is working or not\nIn the EC2 interface, select Instances from the left panel, check the box server1 -\u0026gt; Connect In the Connect to instance interface, select EC2 Instance Connect -\u0026gt; Connect using EC2 Instance Connect -\u0026gt; Connect Successfully connected and successfully pinged the private ip of server2 Do the same Connect to server2 and successfully ping the private ip of server1 At DevUser account in Region Singapore Download template to use Template2.yaml\nCreate CloudFormation Follow the same steps as the root account Connect to Server3 and Server4 and ping between the two servers to check if peering is working or not Follow the same steps as for the root account Successfully connected and successfully pinged the private ip of server4 Implement Cross-region Cross-Account peering Create peering connection At account root In the VPC interface, select Transit gateway attachments from the left panel, select Create transit gateway attachment Enter Name tag : tga3 Select Transit gateway ID Select Attachment type : Peering Connection Select Account : Other account Copy Account Id from **DevUser ** account Copy Transit gateway id from DevUser account Select Region : ap-southeast-1 and enter the copied information -\u0026gt; Create transit gateway attachment Created successfully and saw status as Initiating Request At account DevUser In the VPC interface, select Transit gateway attachments on the left panel, select the attachment square with status Pending Acceptance -\u0026gt; Actions -\u0026gt; Accept transit gateway attachment Accept Wait until acceptance is completed and the status changes to Available 3. At account root, configure Transit gateway route tables\nIn VPC, select Transit gateway route tables from the left panel, select the default route table box -\u0026gt; Create static route Enter CIDR : 10.2.0.0/16 Type: Active Choose attachment: choose tga3 Create static route Do the same Created successfully In the DevUser account, configure Transit gateway route tables Do the same as step 3 At the root account, configure Route tables In VPC, select Route tablesfrom the left panel, select the box RTBpubsubvpc1 -\u0026gt; Routes -\u0026gt; Edit routes Add 2 routes as follows -\u0026gt; Save changes Do the same with RTBpubsubvpc2 At DevUser account, configure Route tables Do the same as step 5 Check the results From server4 successfully pinged to private ip of server1 From server3 successfully pinged to private ip of server1 From server2 successfully pinged the private ip of server3 and server4 "
+},
+{
+	"uri": "//localhost:1313/3-efs/",
+	"title": "EFS Deployment",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will create EFS according to the following architecture Content Create EFS Configure EFS at servers Result "
+},
+{
+	"uri": "//localhost:1313/3-efs/3.3-result/",
+	"title": "Result",
+	"tags": [],
+	"description": "",
+	"content": "\nOn server3, create a file with the command touch /efs/server3.txt 2. On server4, run the command to test\nls /efs "
+},
+{
+	"uri": "//localhost:1313/4-filegw/4.4-configresult/",
+	"title": "Configure on-premise and check the results",
+	"tags": [],
+	"description": "",
+	"content": " In the Storage Gateway interface, select File shares from the left panel, select the newly created File share In Details , copy Example Commands Edit the command and paste it into the cmd of your personal computer In the sample command [WindowsDriveLetter] replace with the drive name, usually a letter like Z, the ip address is replaced with the agent\u0026rsquo;s public ip Enter the created password A Z drive appears on the PC, access and create a file named hello.txt In the root account, access S3, select the S3 we created, select Folder filegw/ and check to see the newly created file on your personal computer has been stored on S3 Perform file upload on S3 Perform Refresh cache on file share to synchronize data from S3 to onpremise Check the Z drive on the computer and see the results "
+},
+{
+	"uri": "//localhost:1313/4-filegw/",
+	"title": "File Gateway Deployment",
+	"tags": [],
+	"description": "",
+	"content": "Deploy File Gateway according to the following architecture Content Create S3 Bucket and Agent for Storage Gateway Create File Gateway Create Fileshare Configure on-premise and check results "
+},
+{
+	"uri": "//localhost:1313/5-datasync/",
+	"title": "DataSync Deployment",
+	"tags": [],
+	"description": "",
+	"content": "Deploy DataSync according to the following architecture Content Create Task Result "
+},
+{
+	"uri": "//localhost:1313/6-cleanup/",
+	"title": "Clean up ",
+	"tags": [],
+	"description": "",
+	"content": "Delete Task DataSync Delete File shares in Storage Gateway Delete Gateway in Storage Gateway Delete EC2 Agent in EC2 Delete File systems in EFS Delete Transit gateway attachments tga3 in VPC Delete Stack in Cloudformation in both accounts Delete EBS volume in EC2 "
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

@@ -1,0 +1,148 @@
+[
+{
+	"uri": "//localhost:1313/vi/",
+	"title": "PrivateLink",
+	"tags": [],
+	"description": "",
+	"content": "Triển khai giải pháp lưu trữ lai sử dụng EFS, Filegateway và DataSync Tổng quan kiến trúc giải pháp Yêu cầu đặt ra Trên môi trường on-premise Triển khai File gateway để lưu trữ dữ liệu từ on-premise lên S3 File Gateway Trên môi trường Cloud 4 VPC thuộc 2 chi nhánh ở 2 region, 2 tài khoản khác nhau sẽ kết nối với nhau và sử dụng EFS để lưu trữ dữ liệu cần thiết cho công việc kinh doanh\nTriển khai DataSync để sao chép dữ liệu tự động từ EFS tới S3 File Gateway để phục vụ người dùng on-premise\nNội dung Giới thiệu Triển khai môi trường VPC Cross-account và Cross-region Triển khai EFS Triển khai File Gateway Triển khai DataSync Dọn dẹp tài nguyên "
+},
+{
+	"uri": "//localhost:1313/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu về AWS Organization AWS Organizations là dịch vụ quản lý tài khoản cho phép bạn hợp nhất nhiều tài khoản AWS thành một tổ chức do bạn tạo và quản lý tập trung. AWS Organizations bao gồm khả năng quản lý tài khoản và thanh toán tổng hợp cho phép bạn đáp ứng tốt hơn các nhu cầu về ngân sách, bảo mật và tuân thủ của doanh nghiệp mình. Với tư cách là quản trị viên của một tổ chức, bạn có thể tạo tài khoản trong tổ chức của mình và mời các tài khoản hiện có tham gia tổ chức.\nAWS Organization: Đây là tập hợp các tài khoản AWS được tổ chức lại theo một cách cụ thể, giúp bạn quản lý chúng một cách dễ dàng hơn.\nOrganizational Unit (OU): Một phân đơn vị trong AWS Organization, cho phép bạn nhóm các tài khoản lại với nhau. Mỗi OU có thể chứa nhiều OU con khác.\nManagement Account: Đây là tài khoản quản lý có quyền cao nhất trong AWS Organization. Tài khoản này có thể kiểm soát tất cả các tài khoản khác và chịu trách nhiệm về việc thanh toán chi phí tổng hợp của các tài khoản thành viên.\nGiới thiệu về AWS Single-Sign-On AWS IAM Identity Center (SSO) là dịch vụ AWS được khuyên dùng để quản lý quyền truy cập của người dùng vào tài nguyên AWS. Đây là nơi duy nhất mà bạn có thể chỉ định người dùng trong lực lượng lao động của mình, còn được gọi là danh tính lực lượng lao động , quyền truy cập nhất quán vào nhiều tài khoản và ứng dụng AWS. AWS IAM Identity Center được cung cấp miễn phí.\nVới AWS IAM Identity Center, bạn có thể tạo hoặc kết nối người dùng trong lực lượng lao động và quản lý tập trung quyền truy cập của họ trên tất cả các tài khoản và ứng dụng AWS của họ. Bạn có thể sử dụng quyền của nhiều tài khoản để cấp quyền truy cập cho người dùng trong lực lượng lao động của mình vào tài khoản AWS. Bạn có thể sử dụng chức năng gán ứng dụng để gán cho người dùng quyền truy cập vào các ứng dụng do khách hàng quản lý và do AWS quản lý.\nGiới thiệu về AWS Transit Gateway Để giải quyết giới hạn của Peering Conenction, AWS Transite Gateway được dùng để kết nối các VPC và mạng on-premises thông qua một hub trung tâm. Điều này đơn giản hoá mạng và kết thúc các mối quan hệ định tuyến phức tạp. Nó hoạt động như một cloud router - mỗi kết nối mới chỉ thực hiện 1 lần.\nAWS Transit Gateway Attachment là một công cụ để gán các subnet của từng VPC cần kết nối với nhau vào một TGW đã được khởi tạo. Transit Gateway Attachment hoạt động dựa trên quy mô của Availability Zone (AZ-level). Trong VPC, khi một subnet ở một AZ có Transit Gateway Attachment với một TGW, các subnet khác trong cùng AZ đều có thể kết nối tới TGW đó\nGiới thiệu về AWS EFS Amazon Elastic File System (Amazon EFS) cung cấp khả năng lưu trữ tệp hoàn toàn linh hoạt, không cần máy chủ để bạn có thể chia sẻ dữ liệu tệp mà không cần cung cấp hay quản lý dung lượng và hiệu suất lưu trữ. Amazon EFS được xây dựng để mở rộng quy mô lên petabyte theo yêu cầu mà không làm gián đoạn ứng dụng, tự động tăng và thu nhỏ khi bạn thêm và xóa tệp. Vì Amazon EFS có giao diện dịch vụ web đơn giản nên bạn có thể tạo và đặt cấu hình hệ thống tệp một cách nhanh chóng và dễ dàng. Dịch vụ này quản lý tất cả cơ sở hạ tầng lưu trữ tệp cho bạn, nghĩa là bạn có thể tránh được sự phức tạp khi triển khai, vá lỗi và duy trì các cấu hình hệ thống tệp phức tạp.\nAmazon EFS hỗ trợ giao thức Network File System phiên bản 4 (NFSv4.1 và NFSv4.0), do đó, các ứng dụng và công cụ mà bạn sử dụng ngày nay hoạt động liền mạch với Amazon EFS. Amazon EFS có thể truy cập được trên hầu hết các loại phiên bản điện toán của Amazon Web Services, bao gồm Amazon EC2, Amazon ECS, Amazon EKS, AWS Lambda và AWS Fargate.\nDịch vụ này được thiết kế để có khả năng mở rộng cao, tính sẵn sàng cao và độ bền cao. Amazon EFS cung cấp các loại hệ thống tệp sau để đáp ứng nhu cầu về độ khả dụng và độ bền của bạn:\nRegional (Được khuyến nghị) – Hệ thống tệp khu vực (được khuyến nghị) lưu trữ dữ liệu dự phòng trên nhiều Vùng sẵn sàng được phân tách theo địa lý trong Khu vực AWS. Việc lưu trữ dữ liệu trên nhiều Vùng sẵn sàng mang lại tính khả dụng liên tục cho dữ liệu, ngay cả khi một hoặc nhiều Vùng sẵn sàng trong Khu vực AWS không khả dụng.\nOne Zone – Hệ thống tệp một vùng lưu trữ dữ liệu trong một Vùng sẵn sàng duy nhất trong Khu vực AWS. Việc lưu trữ dữ liệu trong một Vùng sẵn sàng duy nhất cung cấp tính khả dụng liên tục cho dữ liệu. Tuy nhiên, trong trường hợp không chắc xảy ra mất mát hoặc hư hỏng toàn bộ hoặc một phần Vùng sẵn sàng, dữ liệu được lưu trữ trong các loại hệ thống tệp này có thể bị mất.\nGiới thiệu về AWS File Storage Gateway File Gateway của AWS là giải pháp sao lưu và khôi phục dữ liệu On-premises tối ưu, hỗ trợ các giao thức tiêu chuẩn như NFS và SMB, tích hợp sâu vào Amazon S3. Điểm đặc biệt là việc tối ưu hóa chi phí và dung lượng, cho phép doanh nghiệp giảm bớt gánh nặng về lưu trữ On-premises. Thêm vào đó, bộ nhớ cache cục bộ của File Gateway giúp tăng cường tốc độ và giảm độ trễ, nâng cao khả năng khôi phục dữ liệu một cách nhanh chóng. Ngoài ra việc tích hợp S3 Lifecycle Policies cung cấp khả năng lưu trữ tự động vào các tier có chi phí thấp hơn, như Amazon S3 Glacier, đem lại linh hoạt và hiệu quả trong việc quản lý dữ liệu.\nGiới thiệu về DataSync AWS DataSync là dịch vụ bảo mật trực tuyến giúp tự động hóa và đẩy nhanh quá trình di chuyển dữ liệu giữa không gian lưu trữ tại chỗ và dịch vụ Lưu trữ của AWS. DataSync có thể sao chép dữ liệu giữa giao thức chia sẻ Hệ thống tệp mạng (NFS), giao thức chia sẻ Khối thông điệp máy chủ (SMB), Hệ thống tệp phân tán Hadoop (HDFS), vị trí lưu trữ đối tượng tự quản lý, AWS Snowcone, vùng lưu trữ trên Dịch vụ lưu trữ đơn giản của Amazon (Amazon S3), hệ thống tệp trên Hệ thống tệp linh hoạt của Amazon (Amazon EFS), hệ thống tệp Amazon FSx dành cho Windows File Server, hệ thống tệp Amazon FSx dành cho Lustre, hệ thống tệp Amazon FSz dành cho OpenZFS và hệ thống tệp Amazon FSx dành cho NetApp ONTAP.\nAWS DataSync còn được dùng để truyền dữ liệu giữa các dịch vụ lưu trữ của AWS, giúp bạn dễ dàng sao chép, lưu trữ hoặc chia sẻ dữ liệu ứng dụng.\n"
+},
+{
+	"uri": "//localhost:1313/vi/2-prepare/2.1-orga/",
+	"title": "Sử dụng Organization",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ sử dụng Organization để tạo OU và AWS Account\nTrong giao diện AWS Management Console, tìm Organization Trong giao diện Organization Chọn AWS account ở bảng điều khiển bên trái Chọn ô vuông Root -\u0026gt; Actions -\u0026gt; Create new Trong giao diện tạo OU Nhập Organiational unit name : Dev Chọn Create Organizational unit Trong giao diện Organization Chọn AWS account ở bảng điều khiển bên trái Chọn Add an AWS account Trong giao diện tạo account Nhập AWS accounts name: DevUser Nhập email Click Create AWS account và chờ đợi việc tạo được hoàn tất Thực hiện di chuyển account vừa tạo vào OU Chọn ô vuông DevUser -\u0026gt; Actions -\u0026gt; Move Trong mục Destination , click Dev OU -\u0026gt; Move AWS account "
+},
+{
+	"uri": "//localhost:1313/vi/3-efs/3.1-createefs/",
+	"title": "Tạo EFS",
+	"tags": [],
+	"description": "",
+	"content": " Trong giao diện AWS Management Console của tài khoản Root chọn EFS Trong giao diện EFS Create file system Chọn Customize Nhập Name : efs\nFile system type: One Zone\nAvailability Zone: us-east-1a Transition into Archive : None\nThroughput mode: bursting\nNext Chọn VPC1\nChọn Security group : Sgec2vpc1\nNext Next Create Tạo thành công "
+},
+{
+	"uri": "//localhost:1313/vi/4-filegw/4.1-s3ec2create/",
+	"title": "Tạo S3 Bucket và Agent cho Storage Gateway",
+	"tags": [],
+	"description": "",
+	"content": " Trên tài khoản Root , tạo S3 Bucket Trong giao diện S3, chọn Create bucket Trong giao diện tạo bucket, nhập Bucket name, Bucket name phải là duy nhất Để mặc định, cuộn xuống và Create bucket 2. Trên tài khoản Root, tạo Agent cho Storage Gateway\nTrong AWS Management Console, chọn Storage Gateway Trong Storage Gateway, chọn Create gateway Nhập Gateway name: filegw Gateway type: Amazon S3 File Gateway Launch Instance Trong giao diện Launch instance, nhập Name: agent Type: m4.large Chọn key pair sẵn có hoặc tạo key pair Thêm rule http và smb cho security groups Configure storage: chọn Add new volume Thêm 150gb volumn gp3 và Launch instance Tạo thành công "
+},
+{
+	"uri": "//localhost:1313/vi/5-datasync/5.1-createtask/",
+	"title": "Tạo Task",
+	"tags": [],
+	"description": "",
+	"content": " Tạo Task di chuyển dữ liệu từ EFS sang S3 Bucket trên tài khoản Root Trong giao diện AWS Management Console, chọn DataSync Trong giao diện DataSync, chọn Tasks ở thanh điều khiển bên trái, chọn Create task Create a new location Location type: EFS Region: US East File system: efs chúng ta đã tạo Subnet: Pubsubvpc1 Security groups: SGec2vpc1 Chọn TLS 1.2 Các tùy chọn khác để mặc định -\u0026gt; Next Location type: S3 Region: US East S3 bucket: Chọn bucket chúng ta đã tạo Folder: nhập filegw/ IAM role: Chọn Auto Generated Chọn Next Tranfer mode: Transfer all data Để các tùy chọn khác mặc định -\u0026gt; Next Cuộn xuống -\u0026gt; Create task Chạy Task Chọn Start -\u0026gt; Start with defaults Chạy thành công, chờ đến khi báo complete "
+},
+{
+	"uri": "//localhost:1313/vi/3-efs/3.2-efsconf/",
+	"title": "Cấu hình sử dụng EFS tại các máy chủ",
+	"tags": [],
+	"description": "",
+	"content": " Cấu hình security group Trong giao diện EC2, chọn Security groups bên bảng điều khiển bên trái, chọn SGec2vpc1 -\u0026gt; Inbound rules -\u0026gt; Edit inbound rules Thêm rule cho phép NFS Save rules Thực hiện mount vào từng server Tại giao diện EFS, chọn efs Attach Chọn Mount via IP, sao chép lệnh mount\nTruy cập server1, chỉnh sửa lại lệnh mount và chạy chuỗi lệnh sau Làm tương tự với server2 Làm tương tự với server3 Làm tương tự với server4 Cấu hình file /etc/fstab để mount tự động mỗi khi khởi động máy chủ vi /etc/fstab Nhập i để vào insert mode, thêm dòng sau vào file cấu hình \u0026lt;ip\u0026gt;:/\t/efs nfs4\tnfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 0 0 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport lấy ở trong câu lệnh copy từ efs Nhấn nút Esc , nhập :wq! - \u0026gt; enter để lưu lại file "
+},
+{
+	"uri": "//localhost:1313/vi/5-datasync/5.2-result/",
+	"title": "Kết quả",
+	"tags": [],
+	"description": "",
+	"content": " Sau khi việc sao chép dữ liệu hoàn tất Kiểm tra S3 bucket ta thấy dữ liệu đã sao chép thành công Thực hiện làm mới cache trên file share hoặc chờ tối đa 5 phút cache sẽ tự động làm mới 1 lần Kiểm tra ổ trên máy cá nhân thấy dữ liệu đã đồng bộ thành công "
+},
+{
+	"uri": "//localhost:1313/vi/2-prepare/2.2-sso/",
+	"title": "Sử dụng Single-Sign-On",
+	"tags": [],
+	"description": "",
+	"content": "Kích hoạt SSO Trong AWS Management Console, Chọn IAM Identity Center Chọn Enable Tạo Group Trong giao diện SSO Chọn Groups từ bảng điều khiển bên trái -\u0026gt; Create group Trong giao diện tạo Group Nhập Group name : DevGroup Chọn Create group Tạo User Trong giao diện SSO Chọn Users từ bảng điều khiển bên trái -\u0026gt; Add user Trong giao diện tạo user Nhập Username : DevUser Mục Password , chọn Send an email Nhập email và thông tin Click Next Chọn ô vuông DevGroup -\u0026gt; Next Cuộn xuống dưới cùng chọn Add user Thêm user thành công Kiểm tra email của tài khoản root Click Accept invitation Thiết lập password cho tài khoản SSO Đăng ký MFA bằng phương thức Authenticator app Tải ứng dụng Goole Authenticator và quét mã QR Tạo Permission sets Trong giao diện SSO Chọn Permission sets từ bảng điều khiển bên trái -\u0026gt; Chọn Create permission set Trong giao diện tạo permission set Trong mục type, chọn Predefined permission set Trong mục Policy for predefined permission set chọn AdministratorAccess -\u0026gt; Next Next Tiến hành Assign user organization Trong giao diện SSO Chọn AWS accounts từ bảng điều khiển bên trái Chọn ô vuông DevUser trong OU Dev -\u0026gt; Chọn Assign users or groups Trong giao diện assign users and groups Chọn ô vuông DevGroup -\u0026gt; Next Chọn ô vuông AdministratorAccess -\u0026gt; Next Submit Đăng nhập bằng SSO Trong giao diện SSO Chọn Dashboard từ bảng điều khiển bên trái, sao chép AWS access portal URL Trong giao diện đăng nhập Nhập tài khoản, mật khẩu và xác thực MFA Chọn đăng nhập vào DevUser với quyền AdministratorAccess Đăng nhập thành công "
+},
+{
+	"uri": "//localhost:1313/vi/4-filegw/4.2-filegwcreate/",
+	"title": "Tạo File Gateway",
+	"tags": [],
+	"description": "",
+	"content": " Chờ Agent tạo xong và trở về giao diện tạo Gateway Storage Chọn ô vuông I completed all the steps above and launched the EC2 Instance -\u0026gt; Next Sao chép ip public của agent và nhập vào -\u0026gt; Puclic accessible -\u0026gt; Next Chọn Deactive logging Chọn No alarm Chọn Configure Cấu hình guest access SMB Trong giao diện Storage Gateway, chọn filegw -\u0026gt; Actions -\u0026gt; Edit SMB settings -\u0026gt; Guest access settings Nhập password -\u0026gt; Save changes "
+},
+{
+	"uri": "//localhost:1313/vi/2-prepare/",
+	"title": "Triển khai môi trường VPC Cross-account và Cross-region",
+	"tags": [],
+	"description": "",
+	"content": "Trong bài thực hành này, chúng ta sẽ xây dựng kiến trúc sau : Content Sử dụng Organization Sử dụng Single-Sign-On Triển khai peering với Transite gateway "
+},
+{
+	"uri": "//localhost:1313/vi/3-efs/3.3-result/",
+	"title": "Kết quả",
+	"tags": [],
+	"description": "",
+	"content": " Trên server3, tạo 1 file với lệnh touch /efs/server3.txt 2. Trên server4 , chạy lệnh để kiểm tra\nls /efs "
+},
+{
+	"uri": "//localhost:1313/vi/4-filegw/4.3-filesharecreate/",
+	"title": "Tạo Fileshare",
+	"tags": [],
+	"description": "",
+	"content": " Trong giao diện Storage Gateway, chọn Gateways từ bảng điều khiển bên trái, chọn ô vuông filesgw -\u0026gt; Create file share Gateway: chọn filesgw\nFile share protocol: SMB\nS3 Bucket: chọn Bucket bạn đã tạo\nUser authentication: Guest access\nChọn Customize configuration S3 prefix name: filegw/\nFile share name: haidang Cuộn xuống chọn Set refresh interval , cài đặt 5 minutes\nNext Để mặc định , chọn Next Authentication method: Guest access -\u0026gt; Next Chọn Create Tạo thành công "
+},
+{
+	"uri": "//localhost:1313/vi/3-efs/",
+	"title": "Triển khai EFS",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thực hiện tạo EFS theo kiến trúc sau Nội dung Tạo EFS Cấu hình sử dụng EFS tại các máy chủ Kết quả "
+},
+{
+	"uri": "//localhost:1313/vi/2-prepare/2.3-tgw/",
+	"title": "Triển khai peering với Transit gateway",
+	"tags": [],
+	"description": "",
+	"content": "Trong phần này, chúng ta sẽ triển khai Peering VPC với Transit Gateway theo kiến trúc sau Sử dụng CloudFormation để triển khai môi trường đã cấu hình peering giữa các VPC trong mỗi tài khoản Account root 2 VPC: VPC1 và VPC2 thuộc region us-east-1, mỗi VPC có 1 Public subnet 2 EC2 Instance : Server1 và Server2 1 Transit Gateway có 2 Transit Gateway Attachment : TGA1 thuộc VPC1 , TGA2 thuộc VPC2 Account DevUser 2 VPC: VPC1 và VPC2 thuộc region ap-southeast-1, mỗi VPC có 1 Public subnet 2 EC2 Instance : Server1 và Server2 1 Transit Gateway có 2 Transit Gateway Attachment : TGA1 thuộc VPC1 , TGA2 thuộc VPC2 Tại tài khoản root thuộc Region N.Virginia Tải xuống mẫu để sử dụng Template1.yaml\nTrong giao diện CloudFormation Chọn Create stack Chọn Choose an existing template, chọn Upload a template file -\u0026gt; Choose file để upload file vừa tải về -\u0026gt; Next Nhập Stack name: transitgw -\u0026gt; Next Để mặc định, cuộn xuống và Next Để mặc định, cuộn xuống và Submit Tạo thành công Chờ trạng thái chuyển sang Complete 3. Kết nối tới Server1 và Server2 và ping giữa 2 server để kiểm tra peering đã hoạt động hay chưa\nTrong giao diện EC2, chọn Instances từ bảng điều khiển bên trái, chọn ô vuông server1 -\u0026gt; Connect Trong giao diện Connect to instance , chọn EC2 Instance Connect -\u0026gt; Connect using EC2 Instance Connect -\u0026gt; Connect Connect thành công và ping thành công tới ip private của server2 Làm tương tự Connect tới server2 và ping thành công tới ip private của server1 Tại tài khoản DevUser thuộc Region Singapore Tải xuống mẫu để sử dụng Template2.yaml\nTạo CloudFormation Làm tương tự các bước như tài khoản root Kết nối tới Server3 và Server4 và ping giữa 2 server để kiểm tra peering đã hoạt động hay chưa Làm tương tự các bước như ở tài khoản root Connect thành công và ping thành công tới ip private của server4 Triển khai peering Cross-region Cross-Account Tạo kết nối peering Tại tài khoản root Trong giao diện VPC, chọn Transit gateway attachments từ bảng điều khiển bên trái, chọn Create transit gateway attachment Nhập Name tag : tga3 Chọn Transit gateway ID Chọn Attachment type : Peering Connection Chọn Account : Other account Sao chép Account Id từ tài khoản **DevUser ** Sao chép Transit gateway id từ tài khoản DevUser Chọn Region : ap-southeast-1 và nhập thông tin vừa sao chép vào -\u0026gt; Create transit gateway attachment Tạo thành công và thấy trạng thái là Initiating Request Tại tài khoản DevUser Trong giao diện VPC, chọn Transit gateway attachments ở bảng điều khiển bên trái, chọn ô vuông attachment với trạng thái Pending Acceptance -\u0026gt; Actions -\u0026gt; Accept transit gateway attachment Accept Chờ cho tới khi việc accept hoàn tất và trạng thái chuyển sang Available 3. Tại tài khoản root, cấu hình Transit gateway route tables\nTrong VPC , chọn Transit gateway route tables từ bảng điều khiển bên trái, chọn ô vuông route table mặc định -\u0026gt; Create static route Nhập CIDR : 10.2.0.0/16 Type: Active Choose attachment: chọn tga3 Create static route Làm tương tự Tạo thành công Tại tài khoản DevUser, cấu hình Transit gateway route tables Làm tương tự như bước 3 Tại tài khoản root, cấu hình Route tables Trong VPC, chọn Route tablestừ bảng điều khiển bên trái, chọn ô vuông RTBpubsubvpc1 -\u0026gt; Routes -\u0026gt; Edit routes Thêm 2 routes như sau -\u0026gt; Save changes Làm tương tự với RTBpubsubvpc2 Tại tài khoản DevUser, cấu hình Route tables Làm tương tự như bước 5 Kiểm tra kết quả Từ server4 ping thành công tới ip private của server1 Từ server3 ping thành công tới ip private của server1 Từ server2 ping thành công tới ip private của server3 và server4 "
+},
+{
+	"uri": "//localhost:1313/vi/4-filegw/4.4-configresult/",
+	"title": "Cấu hình ở on-premise và kiểm tra kết quả ",
+	"tags": [],
+	"description": "",
+	"content": " Trong giao diện Storage Gateway, chọn File shares từ bảng điều khiển bên trái, chọn File share vừa tạo Trong Details , sao chép Example Commands Chỉnh sửa lại câu lệnh và dán vào cmd của máy cá nhân Trong câu lệnh mẫu [WindowsDriveLetter] thay bằng tên ổ, thường là chữ cái như Z , địa chỉ ip thay bằng ip public của agent Nhập password đã tạo Trong PC xuất hiện một ổ Z, truy cập và tạo 1 file tên hello.txt Trong tài khoản root, truy cập S3 , chọn S3 chúng ta đã tạo, chọn Folder filegw/ và kiểm tra sẽ thấy file vừa tạo trên máy tính cá nhân đã được lưu trữ trên S3 Thực hiện upload file trên S3 Thực hiện Refresh cache trên file share để dữ liệu từ S3 đồng bộ xuống onpremise Kiểm tra ổ Z trên máy tính và thấy kết quả "
+},
+{
+	"uri": "//localhost:1313/vi/4-filegw/",
+	"title": "Triển khai File Gateway",
+	"tags": [],
+	"description": "",
+	"content": "Triển khai File Gateway theo kiến trúc sau Nội dung Tạo S3 Bucket và Agent cho Storage Gateway Tạo File Gateway Tạo Fileshare Cấu hình ở on-premise và kiểm tra kết quả "
+},
+{
+	"uri": "//localhost:1313/vi/5-datasync/",
+	"title": "Triển khai DataSync",
+	"tags": [],
+	"description": "",
+	"content": "Triển khai DataSync theo kiến trúc sau Nội dung Tạo Task Kết quả "
+},
+{
+	"uri": "//localhost:1313/vi/6-cleanup/",
+	"title": "Dọn dẹp tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": "Xóa Task DataSync Xóa File shares trong Storage Gateway Xóa Gateway trong Storage Gateway Xóa Agent EC2 trong EC2 Xóa File systems trong EFS Xóa Transit gateway attachments tga3 trong VPC Xóa Stack trong Cloudformation ở cả 2 tài khoản Xóa EBS volume trong EC2 "
+},
+{
+	"uri": "//localhost:1313/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

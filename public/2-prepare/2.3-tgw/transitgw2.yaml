@@ -1,0 +1,233 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: "ami-0a699202e5027c10d"
+    ap-southeast-1:
+      AMI: "ami-0fd77db8c27ba5cc5"
+  AZRegions:
+    ap-southeast-1:
+      AZs: ["a", "b"]
+    us-east-1:
+      AZs: ["a", "b"]    
+Resources:
+  EC2Instance1:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      InstanceType: t2.micro
+      Tags:
+        - Key: Name
+          Value: server3
+      SubnetId: !Ref Pubsubvpc1
+      SecurityGroupIds:
+        - !Ref SGec2vpc1
+  SGec2vpc1:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: String
+      GroupName: String
+      SecurityGroupEgress: 
+        - IpProtocol: -1     
+          CidrIp: 0.0.0.0/0
+        
+      SecurityGroupIngress: 
+        - IpProtocol: icmp
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      Tags: 
+        - Key: Name
+          Value: SGec2vpc1
+      VpcId: !Ref VPC1
+  
+  VPC1:
+      Type: "AWS::EC2::VPC"
+      Properties:
+        EnableDnsSupport: "true"
+        EnableDnsHostnames: "true"
+        CidrBlock: 10.2.0.0/16
+        Tags:
+          - Key: Name
+            Value: VPC1
+  Pubsubvpc1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: #us-east-1a
+        Fn::Sub:
+          - "${AWS::Region}${AZ}"
+          - AZ: !Select [ 0, !FindInMap [ "AZRegions", !Ref "AWS::Region", "AZs" ] ]
+      CidrBlock: 10.2.1.0/24
+      VpcId: !Ref VPC1
+      MapPublicIpOnLaunch: true 
+      Tags:
+          - Key: Name
+            Value: Pubsubvpc1
+  RTBpubsubvpc1:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC1
+      Tags:
+          - Key: Name
+            Value: RTBpubsubvpc1
+  Route1vpc1:
+    Type: AWS::EC2::Route
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref IGW1
+      RouteTableId: !Ref RTBpubsubvpc1
+  SubRtbAss1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref RTBpubsubvpc1
+      SubnetId: !Ref Pubsubvpc1
+  #Route2:
+    #Type: AWS::EC2::Route
+    #Properties:
+  IGW1:     
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: 
+        - Key: Name
+          Value: IGW2
+  VPC1att:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref IGW1
+      VpcId: !Ref VPC1
+
+  EC2Instance2:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      InstanceType: t2.micro
+      Tags:
+        - Key: Name
+          Value: server4
+      SubnetId: !Ref Pubsubvpc2
+      SecurityGroupIds:
+        - !Ref SGec2vpc2
+  SGec2vpc2:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: String
+      GroupName: String
+      SecurityGroupEgress: 
+        - IpProtocol: -1     
+          CidrIp: 0.0.0.0/0
+        
+      SecurityGroupIngress: 
+        - IpProtocol: icmp
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      Tags: 
+        - Key: Name
+          Value: SGec2vpc2
+      VpcId: !Ref VPC2
+  
+  VPC2:
+      Type: "AWS::EC2::VPC"
+      Properties:
+        EnableDnsSupport: "true"
+        EnableDnsHostnames: "true"
+        CidrBlock: 10.3.0.0/16
+        Tags:
+          - Key: Name
+            Value: VPC2
+  Pubsubvpc2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: #us-east-1a
+        Fn::Sub:
+          - "${AWS::Region}${AZ}"
+          - AZ: !Select [ 0, !FindInMap [ "AZRegions", !Ref "AWS::Region", "AZs" ] ]
+      CidrBlock: 10.3.1.0/24
+      VpcId: !Ref VPC2
+      MapPublicIpOnLaunch: true 
+      Tags:
+          - Key: Name
+            Value: Pubsubvpc2
+  RTBpubsubvpc2:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC2
+      Tags:
+          - Key: Name
+            Value: RTBpubsubvpc2
+  Route1vpc2:
+    Type: AWS::EC2::Route
+    Properties:
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref IGW2
+      RouteTableId: !Ref RTBpubsubvpc2
+  SubRtbAss2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref RTBpubsubvpc2
+      SubnetId: !Ref Pubsubvpc2
+  #Route2:
+    #Type: AWS::EC2::Route
+    #Properties:
+  IGW2:     
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: 
+        - Key: Name
+          Value: IGW2
+  VPC2att:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref IGW2
+      VpcId: !Ref VPC2
+
+  tgw: 
+    Type: AWS::EC2::TransitGateway
+    Properties:
+      Description: Transit gateway
+      Tags: 
+        - Key: Name
+          Value: tgw
+  tga1:  
+    Type: AWS::EC2::TransitGatewayAttachment
+    Properties:    
+      VpcId: !Ref VPC1
+      SubnetIds: 
+        - !Ref Pubsubvpc1 
+      TransitGatewayId: !Ref tgw
+      Tags: 
+        - Key: Name
+          Value: tga1
+  tga2:  
+    Type: AWS::EC2::TransitGatewayAttachment
+    Properties:    
+      VpcId: !Ref VPC2
+      SubnetIds: 
+        - !Ref Pubsubvpc2 
+      TransitGatewayId: !Ref tgw   
+      Tags: 
+        - Key: Name
+          Value: tga2 
+  Route2vpc1:
+    Type: AWS::EC2::Route
+    Properties:
+      DestinationCidrBlock: 10.3.0.0/16
+      TransitGatewayId: !Ref tgw  
+      RouteTableId: !Ref RTBpubsubvpc1
+    DependsOn: tga1
+  Route2vpc2:
+    Type: AWS::EC2::Route
+    Properties:
+      DestinationCidrBlock: 10.2.0.0/16
+      TransitGatewayId: !Ref tgw  
+      RouteTableId: !Ref RTBpubsubvpc2
+    DependsOn: tga2
