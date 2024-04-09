@@ -7,7 +7,7 @@ pre : " <b> 2. </b> "
 ---
 
 Trong bài thực hành này, chúng ta sẽ xây dựng kiến trúc sau :
-![diagram](/images/1.introduce/diagram1.png)
+![diagram](/public/images/1.introduce/diagram1.png)
 
   
 ### Content
