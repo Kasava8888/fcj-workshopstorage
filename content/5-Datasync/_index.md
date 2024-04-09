@@ -7,7 +7,7 @@ pre : " <b> 5. </b> "
 ---
 
 Deploy DataSync according to the following architecture
-![diagram](/images/1.introduce/diagram1.png)
+![diagram](/public/images/1.introduce/diagram1.png)
 
 ### Content
 1. [Create Task](5-Datasync/5.1-createtask)

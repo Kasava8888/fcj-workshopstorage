@@ -7,7 +7,7 @@ pre : " <b> 4. </b> "
 ---
 
 Deploy File Gateway according to the following architecture
-![diagram](/images/1.introduce/diagram1.png)
+![diagram](/public/images/1.introduce/diagram1.png)
 
 
 ### Content

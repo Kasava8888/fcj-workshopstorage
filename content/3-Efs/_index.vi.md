@@ -7,7 +7,7 @@ pre : " <b> 3. </b> "
 ---
 
 Trong bước này, chúng ta sẽ thực hiện tạo EFS theo kiến trúc sau
-![diagram](/images/1.introduce/diagram1.png)
+![diagram](/public/images/1.introduce/diagram1.png)
 
 ### Nội dung
 

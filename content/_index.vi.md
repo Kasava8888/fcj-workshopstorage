@@ -7,7 +7,7 @@ chapter : false
 
 # Triển khai giải pháp lưu trữ lai sử dụng EFS, Filegateway và DataSync
 ## Tổng quan kiến trúc giải pháp
-![diagram](/images/1.introduce/diagram1.png)
+![diagram](/public/images/1.introduce/diagram1.png)
 
 
 ## Yêu cầu đặt ra

@@ -7,7 +7,7 @@ pre : " <b> 2. </b> "
 ---
 
 In this exercise, we will build the following architecture:
-![diagram](/images/1.introduce/diagram1.png)
+![diagram](/public/images/1.introduce/diagram1.png)
 
   
 ### Content

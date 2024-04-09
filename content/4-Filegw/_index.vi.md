@@ -8,7 +8,7 @@ pre : " <b> 4. </b> "
 
 
 Triển khai File Gateway theo kiến trúc sau
-![diagram](/images/1.introduce/diagram1.png)
+![diagram](/public/images/1.introduce/diagram1.png)
 ### Nội dung
  1. [Tạo S3 Bucket và Agent cho Storage Gateway](4-Filegw/4.1-s3ec2create)
  2. [Tạo File Gateway](4-Filegw/4.2-filegwcreate)

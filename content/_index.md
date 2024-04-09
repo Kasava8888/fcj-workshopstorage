@@ -6,7 +6,7 @@ chapter : false
 ---
 # Deploy a hybrid storage solution using EFS, Filegateway and DataSync
 ## Solution architecture overview
-![diagram](/images/1.introduce/diagram1.png)
+![diagram](/public/images/1.introduce/diagram1.png)
 
 
 ## Requirements

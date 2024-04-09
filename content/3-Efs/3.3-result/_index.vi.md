@@ -9,9 +9,9 @@ pre : " <b> 3.3. </b> "
 ``` 
 touch /efs/server3.txt
 ```
-![efs](/images/3.efs/3.1.18.png)
+![efs](/public/images/3.efs/3.1.18.png)
 2. Trên server4 , chạy lệnh để kiểm tra
 ```
 ls /efs
 ```
-![efs](/images/3.efs/3.1.19.png)
+![efs](/public/images/3.efs/3.1.19.png)
