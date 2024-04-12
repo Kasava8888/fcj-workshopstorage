@@ -12,21 +12,21 @@
     <title>Configure EFS at servers :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1712656919" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1712656919" rel="stylesheet">
-    <link href="/css/hybrid.css?1712656919" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1712656919" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1712656919" rel="stylesheet">
-    <link href="/css/auto-complete.css?1712656919" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1712656919" rel="stylesheet">
-    <link href="/css/theme.css?1712656919" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1712656919" rel="stylesheet">
+    <link href="/css/nucleus.css?1712899628" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1712899628" rel="stylesheet">
+    <link href="/css/hybrid.css?1712899628" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1712899628" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1712899628" rel="stylesheet">
+    <link href="/css/auto-complete.css?1712899628" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1712899628" rel="stylesheet">
+    <link href="/css/theme.css?1712899628" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1712899628" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1712656919" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1712899628" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1712656919"></script>
+    <script src="/js/jquery-3.3.1.min.js?1712899628"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1712656919"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1712656919"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1712899628"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1712899628"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1712656919"></script>
+<script type="text/javascript" src="/js/search.js?1712899628"></script>
 
     
   </div>
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/2-prepare/" title="Preparation" class="dd-item 
+    <li data-nav-id="/2-prepare/" title="Deploy Cross-account and Cross-region VPC environments" class="dd-item 
         
         
         
         ">
       <a href="/2-prepare/">
-           <b> 2. </b> Preparation
+           <b> 2. </b> Deploy Cross-account and Cross-region VPC environments
           
             <i class="fas fa-check read-icon"></i>
           
@@ -797,31 +797,31 @@
 </ol>
 <ul>
 <li>In the <strong>EC2</strong> interface, select <strong>Security groups</strong> on the left panel, select <strong>SGec2vpc1 -&gt; Inbound rules -&gt; Edit inbound rules</strong>
-<img alt="efs" src="/images/3.efs/3.1.12.png"></li>
+<img alt="efs" src="/public/images/3.efs/3.1.12.png"></li>
 <li>Add rule to allow <strong>NFS</strong></li>
 <li><strong>Save rules</strong>
-<img alt="efs" src="/images/3.efs/3.1.13.png"></li>
+<img alt="efs" src="/public/images/3.efs/3.1.13.png"></li>
 </ul>
 <ol start="2">
 <li>Make a mount to each server</li>
 </ol>
 <ul>
 <li>At <strong>EFS</strong> interface, select efs
-<img alt="efs" src="/images/3.efs/3.1.9.png"></li>
+<img alt="efs" src="/public/images/3.efs/3.1.9.png"></li>
 <li><strong>Attach</strong>
-<img alt="efs" src="/images/3.efs/3.1.10.png"></li>
+<img alt="efs" src="/public/images/3.efs/3.1.10.png"></li>
 <li>Select <strong>Mount via IP</strong>, copy mount command
-<img alt="efs" src="/images/3.efs/3.1.11.png"></li>
+<img alt="efs" src="/public/images/3.efs/3.1.11.png"></li>
 <li>Go to <strong>server1</strong>, edit the mount command again and run the following series of commands</li>
 </ul>
-<p><img alt="efs" src="/images/3.efs/3.1.14.png"></p>
+<p><img alt="efs" src="/public/images/3.efs/3.1.14.png"></p>
 <ul>
 <li>Do the same with <strong>server2</strong>
-<img alt="efs" src="/images/3.efs/3.1.15.png"></li>
+<img alt="efs" src="/public/images/3.efs/3.1.15.png"></li>
 <li>Do the same with <strong>server3</strong>
-<img alt="efs" src="/images/3.efs/3.1.16.png"></li>
+<img alt="efs" src="/public/images/3.efs/3.1.16.png"></li>
 <li>Do the same with <strong>server4</strong>
-<img alt="efs" src="/images/3.efs/3.1.17.png"></li>
+<img alt="efs" src="/public/images/3.efs/3.1.17.png"></li>
 </ul>
 <ol start="3">
 <li>Configure the /etc/fstab file to mount automatically every time the server starts</li>
@@ -835,7 +835,7 @@
 <li><code>nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport</code> taken from the copy command from efs</li>
 <li>Press the <strong>Esc</strong> button, enter <code>:wq!</code> - &gt; <strong>enter</strong> to save the file</li>
 </ul>
-<p><img alt="efs" src="/images/3.efs/3.1.20.png"></p>
+<p><img alt="efs" src="/public/images/3.efs/3.1.20.png"></p>
 
 
 
@@ -1200,19 +1200,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1712656919"></script>
-    <script src="/js/jquery.sticky.js?1712656919"></script>
-    <script src="/js/featherlight.min.js?1712656919"></script>
-    <script src="/js/highlight.pack.js?1712656919"></script>
+    <script src="/js/clipboard.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1712899628"></script>
+    <script src="/js/jquery.sticky.js?1712899628"></script>
+    <script src="/js/featherlight.min.js?1712899628"></script>
+    <script src="/js/highlight.pack.js?1712899628"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1712656919"></script>
-    <script src="/js/learn.js?1712656919"></script>
-    <script src="/js/hugo-learn.js?1712656919"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1712899628"></script>
+    <script src="/js/learn.js?1712899628"></script>
+    <script src="/js/hugo-learn.js?1712899628"></script>
 
-    <link href="/mermaid/mermaid.css?1712656919" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1712656919"></script>
+    <link href="/mermaid/mermaid.css?1712899628" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1712899628"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

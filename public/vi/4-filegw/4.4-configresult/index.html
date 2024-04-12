@@ -12,21 +12,21 @@
     <title>Cấu hình ở on-premise và kiểm tra kết quả  :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1712656919" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1712656919" rel="stylesheet">
-    <link href="/css/hybrid.css?1712656919" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1712656919" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1712656919" rel="stylesheet">
-    <link href="/css/auto-complete.css?1712656919" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1712656919" rel="stylesheet">
-    <link href="/css/theme.css?1712656919" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1712656919" rel="stylesheet">
+    <link href="/css/nucleus.css?1712899628" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1712899628" rel="stylesheet">
+    <link href="/css/hybrid.css?1712899628" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1712899628" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1712899628" rel="stylesheet">
+    <link href="/css/auto-complete.css?1712899628" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1712899628" rel="stylesheet">
+    <link href="/css/theme.css?1712899628" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1712899628" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1712656919" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1712899628" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1712656919"></script>
+    <script src="/js/jquery-3.3.1.min.js?1712899628"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1712656919"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1712656919"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1712899628"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1712899628"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1712656919"></script>
+<script type="text/javascript" src="/js/search.js?1712899628"></script>
 
     
   </div>
@@ -794,32 +794,32 @@
 
 	<ol>
 <li>Trong giao diện <strong>Storage Gateway</strong>, chọn <strong>File shares</strong> từ bảng điều khiển bên trái, chọn <strong>File share</strong> vừa tạo
-<img alt="filegw" src="/images/4.filegw/4.4.1.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.1.png"></li>
 </ol>
 <ul>
 <li>Trong <strong>Details</strong> , sao chép <strong>Example Commands</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.2.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.2.png"></li>
 <li>Chỉnh sửa lại câu lệnh và dán vào cmd của máy cá nhân</li>
 <li>Trong câu lệnh mẫu [WindowsDriveLetter] thay bằng tên ổ, thường là chữ cái như Z , địa chỉ ip thay bằng ip public của agent</li>
 <li>Nhập password đã tạo
-<img alt="filegw" src="/images/4.filegw/4.4.3.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.3.png"></li>
 <li>Trong PC xuất hiện một ổ Z, truy cập và tạo 1 file tên <strong>hello.txt</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.4.png">
-<img alt="filegw" src="/images/4.filegw/4.4.5.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.4.png">
+<img alt="filegw" src="/public/images/4.filegw/4.4.5.png"></li>
 <li>Trong tài khoản <strong>root</strong>, truy cập <strong>S3</strong> , chọn <strong>S3</strong> chúng ta đã tạo, chọn <strong>Folder filegw/</strong> và kiểm tra sẽ thấy file vừa tạo trên máy tính cá nhân đã được lưu trữ trên <strong>S3</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.6.png">
-<img alt="filegw" src="/images/4.filegw/4.4.7.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.6.png">
+<img alt="filegw" src="/public/images/4.filegw/4.4.7.png"></li>
 </ul>
-<p><img alt="filegw" src="/images/4.filegw/4.4.8.png"></p>
+<p><img alt="filegw" src="/public/images/4.filegw/4.4.8.png"></p>
 <ul>
 <li>Thực hiện upload file trên <strong>S3</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.9.png">
-<img alt="filegw" src="/images/4.filegw/4.4.10.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.9.png">
+<img alt="filegw" src="/public/images/4.filegw/4.4.10.png"></li>
 <li>Thực hiện <strong>Refresh cache</strong> trên <strong>file share</strong> để dữ liệu từ <strong>S3</strong> đồng bộ xuống <strong>onpremise</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.11.png">
-<img alt="filegw" src="/images/4.filegw/4.4.12.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.11.png">
+<img alt="filegw" src="/public/images/4.filegw/4.4.12.png"></li>
 <li>Kiểm tra ổ Z trên máy tính và thấy kết quả
-<img alt="filegw" src="/images/4.filegw/4.4.13.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.13.png"></li>
 </ul>
 
 
@@ -1185,19 +1185,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1712656919"></script>
-    <script src="/js/jquery.sticky.js?1712656919"></script>
-    <script src="/js/featherlight.min.js?1712656919"></script>
-    <script src="/js/highlight.pack.js?1712656919"></script>
+    <script src="/js/clipboard.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1712899628"></script>
+    <script src="/js/jquery.sticky.js?1712899628"></script>
+    <script src="/js/featherlight.min.js?1712899628"></script>
+    <script src="/js/highlight.pack.js?1712899628"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1712656919"></script>
-    <script src="/js/learn.js?1712656919"></script>
-    <script src="/js/hugo-learn.js?1712656919"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1712899628"></script>
+    <script src="/js/learn.js?1712899628"></script>
+    <script src="/js/hugo-learn.js?1712899628"></script>
 
-    <link href="/mermaid/mermaid.css?1712656919" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1712656919"></script>
+    <link href="/mermaid/mermaid.css?1712899628" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1712899628"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

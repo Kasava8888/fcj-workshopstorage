@@ -12,21 +12,21 @@
     <title>Deploy peering with Transit gateway :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1712657162" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1712657162" rel="stylesheet">
-    <link href="/css/hybrid.css?1712657162" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1712657162" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1712657162" rel="stylesheet">
-    <link href="/css/auto-complete.css?1712657162" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1712657162" rel="stylesheet">
-    <link href="/css/theme.css?1712657162" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1712657162" rel="stylesheet">
+    <link href="/css/nucleus.css?1712899628" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1712899628" rel="stylesheet">
+    <link href="/css/hybrid.css?1712899628" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1712899628" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1712899628" rel="stylesheet">
+    <link href="/css/auto-complete.css?1712899628" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1712899628" rel="stylesheet">
+    <link href="/css/theme.css?1712899628" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1712899628" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1712657162" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1712899628" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1712657162"></script>
+    <script src="/js/jquery-3.3.1.min.js?1712899628"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1712657162"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1712657162"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1712899628"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1712899628"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1712657162"></script>
+<script type="text/javascript" src="/js/search.js?1712899628"></script>
 
     
   </div>
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/2-prepare/" title="Preparation" class="dd-item 
+    <li data-nav-id="/2-prepare/" title="Deploy Cross-account and Cross-region VPC environments" class="dd-item 
         parent
         
         
         ">
       <a href="/2-prepare/">
-           <b> 2. </b> Preparation
+           <b> 2. </b> Deploy Cross-account and Cross-region VPC environments
           
             <i class="fas fa-check read-icon"></i>
           
@@ -755,7 +755,7 @@
             
           
           
-            <a href='/'>PrivateLink</a> > <a href='/2-prepare/'>Preparation</a> > Deploy peering with Transit gateway
+            <a href='/'>PrivateLink</a> > <a href='/2-prepare/'>Deploy Cross-account and Cross-region VPC environments</a> > Deploy peering with Transit gateway
           
         
           
@@ -807,7 +807,7 @@
 
 
 	<p>In this section, we will deploy Peering VPC with <strong>Transit Gateway</strong> according to the following architecture
-<img alt="diagram" src="/images/1.introduce/diagram1.png"></p>
+<img alt="diagram" src="/public/images/1.introduce/diagram1.png"></p>
 <h2 id="use-cloudformation-to-deploy-a-peering-configured-environment-between-vpcs-in-each-account">Use CloudFormation to deploy a peering configured environment between VPCs in each account</h2>
 <ol>
 <li>Account <strong>root</strong></li>
@@ -832,34 +832,34 @@
 </ol>
 <ul>
 <li>Select <strong>Create stack</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.1.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.1.png"></li>
 <li>Select <strong>Choose an existing template</strong>, select <strong>Upload a template file -&gt; Choose file</strong> to upload the downloaded file -&gt; <strong>Next</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.2.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.2.png"></li>
 <li>Enter <strong>Stack name</strong>: <code>transitgw</code> -&gt; <strong>Next</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.3.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.3.png"></li>
 <li>Leave as default, scroll down and <strong>Next</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.4.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.4.png"></li>
 <li>Leave as default, scroll down and <strong>Submit</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.5.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.5.png"></li>
 </ul>
 <ol start="2">
 <li>Create success</li>
 </ol>
-<p><img alt="tgw" src="/images/2.prepare/2.3.9.png"></p>
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.9.png"></p>
 <ul>
 <li>Wait for the status to change to <strong>Complete</strong></li>
 </ul>
-<p><img alt="tgw" src="/images/2.prepare/2.3.10.png">
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.10.png">
 3. Connect to Server1 and Server2 and ping between the two servers to check if peering is working or not</p>
 <ul>
 <li>In the <strong>EC2</strong> interface, select <strong>Instances</strong> from the left panel, check the box <strong>server1 -&gt; Connect</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.11.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.11.png"></li>
 <li>In the <strong>Connect to instance</strong> interface, select <strong>EC2 Instance Connect -&gt; Connect using EC2 Instance Connect -&gt; Connect</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.12.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.12.png"></li>
 <li>Successfully connected and successfully pinged the private ip of <strong>server2</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.16.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.16.png"></li>
 <li>Do the same Connect to <strong>server2</strong> and successfully ping the private ip of <strong>server1</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.15.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.15.png"></li>
 </ul>
 <h3 id="at-devuser-account-in-region-singapore">At DevUser account in Region Singapore</h3>
 <p>Download template to use <a href="/2-prepare/2.3-tgw/transitgw2.yaml">Template2.yaml</a></p>
@@ -868,18 +868,18 @@
 </ol>
 <ul>
 <li>Follow the same steps as the <strong>root</strong> account
-<img alt="tgw" src="/images/2.prepare/2.3.17.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.17.png"></li>
 </ul>
 <ol start="2">
 <li>Connect to <strong>Server3</strong> and <strong>Server4</strong> and ping between the two servers to check if peering is working or not</li>
 </ol>
 <ul>
 <li>Follow the same steps as for the <strong>root</strong> account
-<img alt="tgw" src="/images/2.prepare/2.3.18.png">
-<img alt="tgw" src="/images/2.prepare/2.3.19.png">
-<img alt="tgw" src="/images/2.prepare/2.3.20.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.18.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.19.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.20.png"></li>
 <li>Successfully connected and successfully pinged the private ip of <strong>server4</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.21.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.21.png"></li>
 </ul>
 <h2 id="implement-cross-region-cross-account-peering">Implement Cross-region Cross-Account peering</h2>
 <h3 id="create-peering-connection">Create peering connection</h3>
@@ -888,91 +888,91 @@
 </ol>
 <ul>
 <li>In the <strong>VPC</strong> interface, select <strong>Transit gateway attachments</strong> from the left panel, select <strong>Create transit gateway attachment</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.22.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.22.png"></li>
 <li>Enter <strong>Name tag</strong> : <code>tga3</code></li>
 <li>Select <strong>Transit gateway ID</strong></li>
 <li>Select <strong>Attachment type</strong> : <strong>Peering Connection</strong></li>
 <li>Select <strong>Account</strong> : <strong>Other account</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.23.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.23.png"></li>
 <li>Copy <strong>Account Id</strong> from **DevUser ** account</li>
 </ul>
-<p><img alt="tgw" src="/images/2.prepare/2.3.24.png"></p>
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.24.png"></p>
 <ul>
 <li>Copy <strong>Transit gateway id</strong> from <strong>DevUser</strong> account
-<img alt="tgw" src="/images/2.prepare/2.3.25.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.25.png"></li>
 <li>Select <strong>Region</strong> : <strong>ap-southeast-1</strong> and enter the copied information -&gt; <strong>Create transit gateway attachment</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.26.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.26.png"></li>
 <li>Created successfully and saw status as <strong>Initiating Request</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.27.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.27.png"></li>
 </ul>
 <ol start="2">
 <li>At account <strong>DevUser</strong></li>
 </ol>
 <ul>
 <li>In the <strong>VPC</strong> interface, select <strong>Transit gateway attachments</strong> on the left panel, select the attachment square with status <strong>Pending Acceptance</strong> -&gt; <strong>Actions -&gt; Accept transit gateway attachment</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.28.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.28.png"></li>
 <li><strong>Accept</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.29.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.29.png"></li>
 <li>Wait until acceptance is completed and the status changes to <strong>Available</strong></li>
 </ul>
-<p><img alt="tgw" src="/images/2.prepare/2.3.30.png">
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.30.png">
 3. At account <strong>root</strong>, configure <strong><strong>Transit gateway route tables</strong></strong></p>
 <ul>
 <li>In VPC, select <strong>Transit gateway route tables</strong> from the left panel, select the default <strong>route table</strong> box -&gt; <strong>Create static route</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.31.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.31.png"></li>
 <li>Enter <strong>CIDR</strong> : <code>10.2.0.0/16</code></li>
 <li><strong>Type: Active</strong></li>
 <li><strong>Choose attachment</strong>: choose <strong>tga3</strong></li>
 <li><strong>Create static route</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.32.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.32.png"></li>
 <li>Do the same
-<img alt="tgw" src="/images/2.prepare/2.3.33.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.33.png"></li>
 <li>Created successfully
-<img alt="tgw" src="/images/2.prepare/2.3.34.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.34.png"></li>
 </ul>
 <ol start="4">
 <li>In the <strong>DevUser</strong> account, configure <strong>Transit gateway route tables</strong></li>
 </ol>
 <ul>
 <li>Do the same as step 3
-<img alt="tgw" src="/images/2.prepare/2.3.39.png">
-<img alt="tgw" src="/images/2.prepare/2.3.40.png">
-<img alt="tgw" src="/images/2.prepare/2.3.41.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.39.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.40.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.41.png"></li>
 </ul>
 <ol start="5">
 <li>At the <strong>root</strong> account, configure <strong>Route tables</strong></li>
 </ol>
 <ul>
 <li>In <strong>VPC,</strong> select <strong>Route tables</strong>from the left panel, select the box <strong>RTBpubsubvpc1 -&gt; Routes -&gt; Edit routes</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.35.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.35.png"></li>
 <li>Add 2 routes as follows -&gt; <strong>Save changes</strong></li>
 </ul>
-<p><img alt="tgw" src="/images/2.prepare/2.3.36.png"></p>
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.36.png"></p>
 <ul>
 <li>Do the same with <strong>RTBpubsubvpc2</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.37.png">
-<img alt="tgw" src="/images/2.prepare/2.3.38.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.37.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.38.png"></li>
 </ul>
 <ol start="6">
 <li>At <strong>DevUser</strong> account, configure <strong>Route tables</strong></li>
 </ol>
 <ul>
 <li>Do the same as step 5
-<img alt="tgw" src="/images/2.prepare/2.3.42.png">
-<img alt="tgw" src="/images/2.prepare/2.3.43.png">
-<img alt="tgw" src="/images/2.prepare/2.3.44.png">
-<img alt="tgw" src="/images/2.prepare/2.3.45.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.42.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.43.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.44.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.45.png"></li>
 </ul>
 <ol start="7">
 <li>Check the results</li>
 </ol>
 <ul>
 <li>From <strong>server4</strong> successfully pinged to private ip of <strong>server1</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.46.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.46.png"></li>
 <li>From <strong>server3</strong> successfully pinged to private ip of <strong>server1</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.47.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.47.png"></li>
 <li>From <strong>server2</strong> successfully pinged the private ip of <strong>server3</strong> and <strong>server4</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.48.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.48.png"></li>
 </ul>
 
 
@@ -1338,19 +1338,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1712657162"></script>
-    <script src="/js/perfect-scrollbar.min.js?1712657162"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1712657162"></script>
-    <script src="/js/jquery.sticky.js?1712657162"></script>
-    <script src="/js/featherlight.min.js?1712657162"></script>
-    <script src="/js/highlight.pack.js?1712657162"></script>
+    <script src="/js/clipboard.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1712899628"></script>
+    <script src="/js/jquery.sticky.js?1712899628"></script>
+    <script src="/js/featherlight.min.js?1712899628"></script>
+    <script src="/js/highlight.pack.js?1712899628"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1712657162"></script>
-    <script src="/js/learn.js?1712657162"></script>
-    <script src="/js/hugo-learn.js?1712657162"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1712899628"></script>
+    <script src="/js/learn.js?1712899628"></script>
+    <script src="/js/hugo-learn.js?1712899628"></script>
 
-    <link href="/mermaid/mermaid.css?1712657162" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1712657162"></script>
+    <link href="/mermaid/mermaid.css?1712899628" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1712899628"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,21 +12,21 @@
     <title>Triển khai peering với Transit gateway :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1712657162" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1712657162" rel="stylesheet">
-    <link href="/css/hybrid.css?1712657162" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1712657162" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1712657162" rel="stylesheet">
-    <link href="/css/auto-complete.css?1712657162" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1712657162" rel="stylesheet">
-    <link href="/css/theme.css?1712657162" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1712657162" rel="stylesheet">
+    <link href="/css/nucleus.css?1712899628" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1712899628" rel="stylesheet">
+    <link href="/css/hybrid.css?1712899628" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1712899628" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1712899628" rel="stylesheet">
+    <link href="/css/auto-complete.css?1712899628" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1712899628" rel="stylesheet">
+    <link href="/css/theme.css?1712899628" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1712899628" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1712657162" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1712899628" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1712657162"></script>
+    <script src="/js/jquery-3.3.1.min.js?1712899628"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1712657162"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1712657162"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1712899628"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1712899628"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1712657162"></script>
+<script type="text/javascript" src="/js/search.js?1712899628"></script>
 
     
   </div>
@@ -832,34 +832,34 @@
 </ol>
 <ul>
 <li>Chọn <strong>Create stack</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.1.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.1.png"></li>
 <li>Chọn <strong>Choose an existing template</strong>, chọn <strong>Upload a template file -&gt; Choose file</strong> để upload file vừa tải về -&gt; <strong>Next</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.2.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.2.png"></li>
 <li>Nhập <strong>Stack name</strong>: <code>transitgw</code> -&gt; <strong>Next</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.3.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.3.png"></li>
 <li>Để mặc định, cuộn xuống và <strong>Next</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.4.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.4.png"></li>
 <li>Để mặc định, cuộn xuống và <strong>Submit</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.5.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.5.png"></li>
 </ul>
 <ol start="2">
 <li>Tạo thành công</li>
 </ol>
-<p><img alt="tgw" src="/images/2.prepare/2.3.9.png"></p>
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.9.png"></p>
 <ul>
 <li>Chờ trạng thái chuyển sang <strong>Complete</strong></li>
 </ul>
-<p><img alt="tgw" src="/images/2.prepare/2.3.10.png">
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.10.png">
 3. Kết nối tới Server1 và Server2 và ping giữa 2 server để kiểm tra peering đã hoạt động hay chưa</p>
 <ul>
 <li>Trong giao diện <strong>EC2</strong>, chọn <strong>Instances</strong> từ bảng điều khiển bên trái, chọn ô vuông <strong>server1 -&gt; Connect</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.11.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.11.png"></li>
 <li>Trong giao diện <strong>Connect to instance</strong> , chọn <strong>EC2 Instance Connect -&gt; Connect using EC2 Instance Connect -&gt; Connect</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.12.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.12.png"></li>
 <li>Connect thành công và ping thành công tới ip private của <strong>server2</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.16.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.16.png"></li>
 <li>Làm tương tự Connect tới <strong>server2</strong> và ping thành công tới ip private của <strong>server1</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.15.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.15.png"></li>
 </ul>
 <h3 id="tại-tài-khoản-devuser-thuộc-region-singapore">Tại tài khoản DevUser thuộc Region Singapore</h3>
 <p>Tải xuống mẫu để sử dụng <a href="/2-prepare/2.3-tgw/transitgw2.yaml">Template2.yaml</a></p>
@@ -868,18 +868,18 @@
 </ol>
 <ul>
 <li>Làm tương tự các bước như tài khoản <strong>root</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.17.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.17.png"></li>
 </ul>
 <ol start="2">
 <li>Kết nối tới <strong>Server3</strong> và <strong>Server4</strong> và ping giữa 2 server để kiểm tra peering đã hoạt động hay chưa</li>
 </ol>
 <ul>
 <li>Làm tương tự các bước như ở tài khoản <strong>root</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.18.png">
-<img alt="tgw" src="/images/2.prepare/2.3.19.png">
-<img alt="tgw" src="/images/2.prepare/2.3.20.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.18.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.19.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.20.png"></li>
 <li>Connect thành công và ping thành công tới ip private của <strong>server4</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.21.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.21.png"></li>
 </ul>
 <h2 id="triển-khai-peering-cross-region-cross-account">Triển khai peering Cross-region Cross-Account</h2>
 <h3 id="tạo-kết-nối-peering">Tạo kết nối peering</h3>
@@ -888,91 +888,91 @@
 </ol>
 <ul>
 <li>Trong giao diện <strong>VPC</strong>, chọn <strong>Transit gateway attachments</strong> từ bảng điều khiển bên trái, chọn <strong>Create transit gateway attachment</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.22.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.22.png"></li>
 <li>Nhập <strong>Name tag</strong> : <code>tga3</code></li>
 <li>Chọn <strong>Transit gateway ID</strong></li>
 <li>Chọn <strong>Attachment type</strong> : <strong>Peering Connection</strong></li>
 <li>Chọn <strong>Account</strong> : <strong>Other account</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.23.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.23.png"></li>
 <li>Sao chép <strong>Account Id</strong> từ tài khoản **DevUser **</li>
 </ul>
-<p><img alt="tgw" src="/images/2.prepare/2.3.24.png"></p>
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.24.png"></p>
 <ul>
 <li>Sao chép <strong>Transit gateway id</strong> từ tài khoản <strong>DevUser</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.25.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.25.png"></li>
 <li>Chọn <strong>Region</strong> : <strong>ap-southeast-1</strong> và nhập thông tin vừa sao chép vào -&gt; <strong>Create transit gateway attachment</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.26.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.26.png"></li>
 <li>Tạo thành công và thấy trạng thái là <strong>Initiating Request</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.27.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.27.png"></li>
 </ul>
 <ol start="2">
 <li>Tại tài khoản <strong>DevUser</strong></li>
 </ol>
 <ul>
 <li>Trong giao diện <strong>VPC</strong>, chọn <strong>Transit gateway attachments</strong> ở bảng điều khiển bên trái, chọn ô vuông attachment với trạng thái <strong>Pending Acceptance</strong> -&gt; <strong>Actions -&gt; Accept transit gateway attachment</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.28.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.28.png"></li>
 <li><strong>Accept</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.29.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.29.png"></li>
 <li>Chờ cho tới khi việc accept hoàn tất và trạng thái chuyển sang <strong>Available</strong></li>
 </ul>
-<p><img alt="tgw" src="/images/2.prepare/2.3.30.png">
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.30.png">
 3. Tại tài khoản <strong>root</strong>, cấu hình <strong><strong>Transit gateway route tables</strong></strong></p>
 <ul>
 <li>Trong VPC , chọn <strong>Transit gateway route tables</strong> từ bảng điều khiển bên trái, chọn ô vuông <strong>route table</strong> mặc định -&gt; <strong>Create static route</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.31.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.31.png"></li>
 <li>Nhập <strong>CIDR</strong> : <code>10.2.0.0/16</code></li>
 <li><strong>Type: Active</strong></li>
 <li><strong>Choose attachment</strong>: chọn <strong>tga3</strong></li>
 <li><strong>Create static route</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.32.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.32.png"></li>
 <li>Làm tương tự
-<img alt="tgw" src="/images/2.prepare/2.3.33.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.33.png"></li>
 <li>Tạo thành công
-<img alt="tgw" src="/images/2.prepare/2.3.34.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.34.png"></li>
 </ul>
 <ol start="4">
 <li>Tại tài khoản <strong>DevUser</strong>, cấu hình <strong>Transit gateway route tables</strong></li>
 </ol>
 <ul>
 <li>Làm tương tự như bước 3
-<img alt="tgw" src="/images/2.prepare/2.3.39.png">
-<img alt="tgw" src="/images/2.prepare/2.3.40.png">
-<img alt="tgw" src="/images/2.prepare/2.3.41.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.39.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.40.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.41.png"></li>
 </ul>
 <ol start="5">
 <li>Tại tài khoản <strong>root</strong>, cấu hình <strong>Route tables</strong></li>
 </ol>
 <ul>
 <li>Trong <strong>VPC,</strong> chọn <strong>Route tables</strong>từ bảng điều khiển bên trái, chọn ô vuông <strong>RTBpubsubvpc1 -&gt; Routes -&gt; Edit routes</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.35.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.35.png"></li>
 <li>Thêm 2 routes như sau -&gt; <strong>Save changes</strong></li>
 </ul>
-<p><img alt="tgw" src="/images/2.prepare/2.3.36.png"></p>
+<p><img alt="tgw" src="/public/images/2.prepare/2.3.36.png"></p>
 <ul>
 <li>Làm tương tự với <strong>RTBpubsubvpc2</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.37.png">
-<img alt="tgw" src="/images/2.prepare/2.3.38.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.37.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.38.png"></li>
 </ul>
 <ol start="6">
 <li>Tại tài khoản <strong>DevUser</strong>, cấu hình <strong>Route tables</strong></li>
 </ol>
 <ul>
 <li>Làm tương tự như bước 5
-<img alt="tgw" src="/images/2.prepare/2.3.42.png">
-<img alt="tgw" src="/images/2.prepare/2.3.43.png">
-<img alt="tgw" src="/images/2.prepare/2.3.44.png">
-<img alt="tgw" src="/images/2.prepare/2.3.45.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.42.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.43.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.44.png">
+<img alt="tgw" src="/public/images/2.prepare/2.3.45.png"></li>
 </ul>
 <ol start="7">
 <li>Kiểm tra kết quả</li>
 </ol>
 <ul>
 <li>Từ <strong>server4</strong> ping thành công tới ip private của <strong>server1</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.46.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.46.png"></li>
 <li>Từ <strong>server3</strong> ping thành công tới ip private của <strong>server1</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.47.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.47.png"></li>
 <li>Từ <strong>server2</strong> ping thành công tới ip private của <strong>server3</strong> và <strong>server4</strong>
-<img alt="tgw" src="/images/2.prepare/2.3.48.png"></li>
+<img alt="tgw" src="/public/images/2.prepare/2.3.48.png"></li>
 </ul>
 
 
@@ -1338,19 +1338,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1712657162"></script>
-    <script src="/js/perfect-scrollbar.min.js?1712657162"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1712657162"></script>
-    <script src="/js/jquery.sticky.js?1712657162"></script>
-    <script src="/js/featherlight.min.js?1712657162"></script>
-    <script src="/js/highlight.pack.js?1712657162"></script>
+    <script src="/js/clipboard.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1712899628"></script>
+    <script src="/js/jquery.sticky.js?1712899628"></script>
+    <script src="/js/featherlight.min.js?1712899628"></script>
+    <script src="/js/highlight.pack.js?1712899628"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1712657162"></script>
-    <script src="/js/learn.js?1712657162"></script>
-    <script src="/js/hugo-learn.js?1712657162"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1712899628"></script>
+    <script src="/js/learn.js?1712899628"></script>
+    <script src="/js/hugo-learn.js?1712899628"></script>
 
-    <link href="/mermaid/mermaid.css?1712657162" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1712657162"></script>
+    <link href="/mermaid/mermaid.css?1712899628" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1712899628"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

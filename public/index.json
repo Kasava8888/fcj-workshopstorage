@@ -57,7 +57,7 @@
 },
 {
 	"uri": "//localhost:1313/2-prepare/",
-	"title": "Preparation",
+	"title": "Deploy Cross-account and Cross-region VPC environments",
 	"tags": [],
 	"description": "",
 	"content": "In this exercise, we will build the following architecture: Content Using Organization Using Single-Sign-On Deploy peering with Transite gateway "

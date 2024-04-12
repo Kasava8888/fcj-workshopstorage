@@ -12,21 +12,21 @@
     <title>Configure on-premise and check the results :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1712656919" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1712656919" rel="stylesheet">
-    <link href="/css/hybrid.css?1712656919" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1712656919" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1712656919" rel="stylesheet">
-    <link href="/css/auto-complete.css?1712656919" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1712656919" rel="stylesheet">
-    <link href="/css/theme.css?1712656919" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1712656919" rel="stylesheet">
+    <link href="/css/nucleus.css?1712899628" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1712899628" rel="stylesheet">
+    <link href="/css/hybrid.css?1712899628" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1712899628" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1712899628" rel="stylesheet">
+    <link href="/css/auto-complete.css?1712899628" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1712899628" rel="stylesheet">
+    <link href="/css/theme.css?1712899628" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1712899628" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1712656919" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1712899628" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1712656919"></script>
+    <script src="/js/jquery-3.3.1.min.js?1712899628"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1712656919"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1712656919"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1712899628"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1712899628"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1712656919"></script>
+<script type="text/javascript" src="/js/search.js?1712899628"></script>
 
     
   </div>
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/2-prepare/" title="Preparation" class="dd-item 
+    <li data-nav-id="/2-prepare/" title="Deploy Cross-account and Cross-region VPC environments" class="dd-item 
         
         
         
         ">
       <a href="/2-prepare/">
-           <b> 2. </b> Preparation
+           <b> 2. </b> Deploy Cross-account and Cross-region VPC environments
           
             <i class="fas fa-check read-icon"></i>
           
@@ -794,32 +794,32 @@
 
 	<ol>
 <li>In the <strong>Storage Gateway</strong> interface, select <strong>File shares</strong> from the left panel, select the newly created <strong>File share</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.1.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.1.png"></li>
 </ol>
 <ul>
 <li>In <strong>Details</strong> , copy <strong>Example Commands</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.2.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.2.png"></li>
 <li>Edit the command and paste it into the cmd of your personal computer</li>
 <li>In the sample command [WindowsDriveLetter] replace with the drive name, usually a letter like Z, the ip address is replaced with the agent&rsquo;s public ip</li>
 <li>Enter the created password
-<img alt="filegw" src="/images/4.filegw/4.4.3.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.3.png"></li>
 <li>A Z drive appears on the PC, access and create a file named <strong>hello.txt</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.4.png">
-<img alt="filegw" src="/images/4.filegw/4.4.5.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.4.png">
+<img alt="filegw" src="/public/images/4.filegw/4.4.5.png"></li>
 <li>In the <strong>root</strong> account, access <strong>S3</strong>, select the <strong>S3</strong> we created, select <strong>Folder filegw/</strong> and check to see the newly created file on your personal computer has been stored on <strong>S3</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.6.png">
-<img alt="filegw" src="/images/4.filegw/4.4.7.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.6.png">
+<img alt="filegw" src="/public/images/4.filegw/4.4.7.png"></li>
 </ul>
-<p><img alt="filegw" src="/images/4.filegw/4.4.8.png"></p>
+<p><img alt="filegw" src="/public/images/4.filegw/4.4.8.png"></p>
 <ul>
 <li>Perform file upload on <strong>S3</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.9.png">
-<img alt="filegw" src="/images/4.filegw/4.4.10.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.9.png">
+<img alt="filegw" src="/public/images/4.filegw/4.4.10.png"></li>
 <li>Perform <strong>Refresh cache</strong> on <strong>file share</strong> to synchronize data from <strong>S3</strong> to <strong>onpremise</strong>
-<img alt="filegw" src="/images/4.filegw/4.4.11.png">
-<img alt="filegw" src="/images/4.filegw/4.4.12.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.11.png">
+<img alt="filegw" src="/public/images/4.filegw/4.4.12.png"></li>
 <li>Check the Z drive on the computer and see the results
-<img alt="filegw" src="/images/4.filegw/4.4.13.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.4.13.png"></li>
 </ul>
 
 
@@ -1185,19 +1185,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1712656919"></script>
-    <script src="/js/jquery.sticky.js?1712656919"></script>
-    <script src="/js/featherlight.min.js?1712656919"></script>
-    <script src="/js/highlight.pack.js?1712656919"></script>
+    <script src="/js/clipboard.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1712899628"></script>
+    <script src="/js/jquery.sticky.js?1712899628"></script>
+    <script src="/js/featherlight.min.js?1712899628"></script>
+    <script src="/js/highlight.pack.js?1712899628"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1712656919"></script>
-    <script src="/js/learn.js?1712656919"></script>
-    <script src="/js/hugo-learn.js?1712656919"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1712899628"></script>
+    <script src="/js/learn.js?1712899628"></script>
+    <script src="/js/hugo-learn.js?1712899628"></script>
 
-    <link href="/mermaid/mermaid.css?1712656919" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1712656919"></script>
+    <link href="/mermaid/mermaid.css?1712899628" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1712899628"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

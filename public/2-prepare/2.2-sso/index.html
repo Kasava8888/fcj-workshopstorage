@@ -12,21 +12,21 @@
     <title>Use Single-Sign-On :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1712656919" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1712656919" rel="stylesheet">
-    <link href="/css/hybrid.css?1712656919" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1712656919" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1712656919" rel="stylesheet">
-    <link href="/css/auto-complete.css?1712656919" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1712656919" rel="stylesheet">
-    <link href="/css/theme.css?1712656919" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1712656919" rel="stylesheet">
+    <link href="/css/nucleus.css?1712899628" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1712899628" rel="stylesheet">
+    <link href="/css/hybrid.css?1712899628" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1712899628" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1712899628" rel="stylesheet">
+    <link href="/css/auto-complete.css?1712899628" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1712899628" rel="stylesheet">
+    <link href="/css/theme.css?1712899628" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1712899628" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1712656919" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1712899628" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1712656919"></script>
+    <script src="/js/jquery-3.3.1.min.js?1712899628"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1712656919"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1712656919"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1712899628"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1712899628"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1712656919"></script>
+<script type="text/javascript" src="/js/search.js?1712899628"></script>
 
     
   </div>
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/2-prepare/" title="Preparation" class="dd-item 
+    <li data-nav-id="/2-prepare/" title="Deploy Cross-account and Cross-region VPC environments" class="dd-item 
         parent
         
         
         ">
       <a href="/2-prepare/">
-           <b> 2. </b> Preparation
+           <b> 2. </b> Deploy Cross-account and Cross-region VPC environments
           
             <i class="fas fa-check read-icon"></i>
           
@@ -755,7 +755,7 @@
             
           
           
-            <a href='/'>PrivateLink</a> > <a href='/2-prepare/'>Preparation</a> > Use Single-Sign-On
+            <a href='/'>PrivateLink</a> > <a href='/2-prepare/'>Deploy Cross-account and Cross-region VPC environments</a> > Use Single-Sign-On
           
         
           
@@ -804,9 +804,9 @@
 	<h2 id="enable-sso">Enable SSO</h2>
 <ol>
 <li>In <strong>AWS Management Console</strong>, Select <strong>IAM Identity Center</strong>
-<img alt="sso" src="/images/2.prepare/2.2.1.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.1.png"></li>
 <li>Select <strong>Enable</strong>
-<img alt="sso" src="/images/2.prepare/2.2.23.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.23.png"></li>
 </ol>
 <h2 id="create-group">Create Group</h2>
 <ol>
@@ -814,7 +814,7 @@
 </ol>
 <ul>
 <li>Select <strong>Groups</strong> from the left panel -&gt; <strong>Create group</strong>
-<img alt="sso" src="/images/2.prepare/2.2.2.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.2.png"></li>
 </ul>
 <ol start="2">
 <li>In the <strong>Group</strong> creation interface</li>
@@ -822,7 +822,7 @@
 <ul>
 <li>Enter <strong>Group name</strong> : <code>DevGroup</code></li>
 <li>Select <strong>Create group</strong>
-<img alt="sso" src="/images/2.prepare/2.2.3.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.3.png"></li>
 </ul>
 <h2 id="create-user">Create User</h2>
 <ol>
@@ -830,7 +830,7 @@
 </ol>
 <ul>
 <li>Select <strong>Users</strong> from the left panel -&gt; <strong>Add user</strong>
-<img alt="sso" src="/images/2.prepare/2.2.4.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.4.png"></li>
 </ul>
 <ol start="2">
 <li>In the user creation interface</li>
@@ -839,29 +839,29 @@
 <li>Enter <strong>Username</strong> : <code>DevUser</code></li>
 <li>In <strong>Password</strong> section, select <strong>Send an email</strong></li>
 <li>Enter email and information
-<img alt="sso" src="/images/2.prepare/2.2.5.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.5.png"></li>
 <li>Click <strong>Next</strong>
-<img alt="sso" src="/images/2.prepare/2.2.6.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.6.png"></li>
 <li>Select the box <strong>DevGroup</strong> -&gt; <strong>Next</strong>
-<img alt="sso" src="/images/2.prepare/2.2.7.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.7.png"></li>
 <li>Scroll to the bottom and select <strong>Add user</strong>
-<img alt="sso" src="/images/2.prepare/2.2.8.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.8.png"></li>
 </ul>
 <ol start="3">
 <li>Added user successfully
-<img alt="sso" src="/images/2.prepare/2.2.9.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.9.png"></li>
 <li>Check the root account&rsquo;s email
-<img alt="sso" src="/images/2.prepare/2.2.10.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.10.png"></li>
 </ol>
 <ul>
 <li>Click <strong>Accept invitation</strong>
-<img alt="sso" src="/images/2.prepare/2.2.11.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.11.png"></li>
 <li>Set up password for <strong>SSO</strong> account
-<img alt="sso" src="/images/2.prepare/2.2.12.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.12.png"></li>
 <li>Register for MFA using the Authenticator app method
-<img alt="sso" src="/images/2.prepare/2.2.13.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.13.png"></li>
 <li>Download the <strong>Goole Authenticator</strong> app and scan the QR code
-<img alt="sso" src="/images/2.prepare/2.2.14.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.14.png"></li>
 </ul>
 <h2 id="create-permission-sets">Create Permission sets</h2>
 <ol>
@@ -869,7 +869,7 @@
 </ol>
 <ul>
 <li>Select <strong>Permission sets</strong> from the left panel -&gt; Select <strong>Create permission set</strong>
-<img alt="sso" src="/images/2.prepare/2.2.15.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.15.png"></li>
 </ul>
 <ol start="2">
 <li>In the interface create <strong>permission set</strong></li>
@@ -877,9 +877,9 @@
 <ul>
 <li>In the <strong>type</strong> section, select <strong>Predefined permission set</strong></li>
 <li>In the <strong>Policy for predefined permission set</strong> section, select <strong>AdministratorAccess -&gt; Next</strong>
-<img alt="sso" src="/images/2.prepare/2.2.16.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.16.png"></li>
 <li><strong>Next</strong>
-<img alt="sso" src="/images/2.prepare/2.2.17.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.17.png"></li>
 </ul>
 <h2 id="proceed-to-assign-user-organization">Proceed to Assign user organization</h2>
 <ol>
@@ -888,18 +888,18 @@
 <ul>
 <li>Select <strong>AWS accounts</strong> from the left panel</li>
 <li>Select the <strong>DevUser</strong> box in <strong>OU Dev</strong> -&gt; Select <strong>Assign users or groups</strong>
-<img alt="sso" src="/images/2.prepare/2.2.18.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.18.png"></li>
 </ul>
 <ol start="2">
 <li>In the interface <strong>assign users and groups</strong></li>
 </ol>
 <ul>
 <li>Select the box <strong>DevGroup -&gt; Next</strong>
-<img alt="sso" src="/images/2.prepare/2.2.19.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.19.png"></li>
 <li>Select the box A<strong>dministratorAccess -&gt; Next</strong>
-<img alt="sso" src="/images/2.prepare/2.2.20.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.20.png"></li>
 <li><strong>Submit</strong>
-<img alt="sso" src="/images/2.prepare/2.2.24.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.24.png"></li>
 </ul>
 <h2 id="login-using-sso">Login using SSO</h2>
 <ol>
@@ -907,7 +907,7 @@
 </ol>
 <ul>
 <li>Select <strong>Dashboard</strong> from the left panel, copy <strong>AWS access portal URL</strong>
-<img alt="sso" src="/images/2.prepare/2.2.25.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.25.png"></li>
 </ul>
 <ol start="2">
 <li>In the login interface</li>
@@ -915,9 +915,9 @@
 <ul>
 <li>Enter account, password and MFA authentication</li>
 <li>Choose to log in to <strong>DevUser</strong> with <strong>AdministratorAccess</strong> rights
-<img alt="sso" src="/images/2.prepare/2.2.21.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.21.png"></li>
 <li>Logged in successfully
-<img alt="sso" src="/images/2.prepare/2.2.22.png"></li>
+<img alt="sso" src="/public/images/2.prepare/2.2.22.png"></li>
 </ul>
 
 
@@ -1283,19 +1283,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1712656919"></script>
-    <script src="/js/jquery.sticky.js?1712656919"></script>
-    <script src="/js/featherlight.min.js?1712656919"></script>
-    <script src="/js/highlight.pack.js?1712656919"></script>
+    <script src="/js/clipboard.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1712899628"></script>
+    <script src="/js/jquery.sticky.js?1712899628"></script>
+    <script src="/js/featherlight.min.js?1712899628"></script>
+    <script src="/js/highlight.pack.js?1712899628"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1712656919"></script>
-    <script src="/js/learn.js?1712656919"></script>
-    <script src="/js/hugo-learn.js?1712656919"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1712899628"></script>
+    <script src="/js/learn.js?1712899628"></script>
+    <script src="/js/hugo-learn.js?1712899628"></script>
 
-    <link href="/mermaid/mermaid.css?1712656919" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1712656919"></script>
+    <link href="/mermaid/mermaid.css?1712899628" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1712899628"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,21 +12,21 @@
     <title>Tạo S3 Bucket và Agent cho Storage Gateway :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1712656919" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1712656919" rel="stylesheet">
-    <link href="/css/hybrid.css?1712656919" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1712656919" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1712656919" rel="stylesheet">
-    <link href="/css/auto-complete.css?1712656919" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1712656919" rel="stylesheet">
-    <link href="/css/theme.css?1712656919" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1712656919" rel="stylesheet">
+    <link href="/css/nucleus.css?1712899628" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1712899628" rel="stylesheet">
+    <link href="/css/hybrid.css?1712899628" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1712899628" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1712899628" rel="stylesheet">
+    <link href="/css/auto-complete.css?1712899628" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1712899628" rel="stylesheet">
+    <link href="/css/theme.css?1712899628" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1712899628" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1712656919" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1712899628" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1712656919"></script>
+    <script src="/js/jquery-3.3.1.min.js?1712899628"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1712656919"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1712656919"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1712899628"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1712899628"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1712656919"></script>
+<script type="text/javascript" src="/js/search.js?1712899628"></script>
 
     
   </div>
@@ -797,39 +797,39 @@
 </ol>
 <ul>
 <li>Trong giao diện <strong>S3</strong>, chọn <strong>Create bucket</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.1.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.1.png"></li>
 <li>Trong giao diện tạo <strong>bucket</strong>, nhập <strong>Bucket name</strong>, Bucket name phải là duy nhất</li>
 <li>Để mặc định, cuộn xuống và <strong>Create bucket</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.2.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.2.png"></li>
 </ul>
-<p><img alt="filegw" src="/images/4.filegw/4.1.3.png">
+<p><img alt="filegw" src="/public/images/4.filegw/4.1.3.png">
 2. Trên tài khoản <strong>Root</strong>, tạo <strong>Agent</strong> cho <strong>Storage Gateway</strong></p>
 <ul>
 <li>Trong <strong>AWS Management Console</strong>, chọn <strong>Storage Gateway</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.4.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.4.png"></li>
 <li>Trong <strong>Storage Gateway</strong>, chọn <strong>Create gateway</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.5.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.5.png"></li>
 <li>Nhập <strong>Gateway name</strong>: <code>filegw</code></li>
 <li><strong>Gateway type: Amazon S3 File Gateway</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.6.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.6.png"></li>
 <li><strong>Launch Instance</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.7.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.7.png"></li>
 <li>Trong giao diện <strong>Launch instance</strong>, nhập <strong>Name</strong>: <code>agent</code>
-<img alt="filegw" src="/images/4.filegw/4.1.8.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.8.png"></li>
 <li><strong>Type: m4.large</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.9.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.9.png"></li>
 <li>Chọn <strong>key pair</strong> sẵn có hoặc tạo <strong>key pair</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.10.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.10.png"></li>
 <li>Thêm rule <strong>http</strong> và <strong>smb</strong> cho <strong>security groups</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.11.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.11.png"></li>
 <li><strong>Configure storage</strong>: chọn <strong>Add new volume</strong></li>
 </ul>
-<p><img alt="filegw" src="/images/4.filegw/4.1.12.png"></p>
+<p><img alt="filegw" src="/public/images/4.filegw/4.1.12.png"></p>
 <ul>
 <li>Thêm 150gb volumn gp3 và <strong>Launch instance</strong>
-<img alt="filegw" src="/images/4.filegw/4.1.13.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.13.png"></li>
 <li>Tạo thành công
-<img alt="filegw" src="/images/4.filegw/4.1.14.png"></li>
+<img alt="filegw" src="/public/images/4.filegw/4.1.14.png"></li>
 </ul>
 
 
@@ -1192,19 +1192,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.min.js?1712656919"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1712656919"></script>
-    <script src="/js/jquery.sticky.js?1712656919"></script>
-    <script src="/js/featherlight.min.js?1712656919"></script>
-    <script src="/js/highlight.pack.js?1712656919"></script>
+    <script src="/js/clipboard.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.min.js?1712899628"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1712899628"></script>
+    <script src="/js/jquery.sticky.js?1712899628"></script>
+    <script src="/js/featherlight.min.js?1712899628"></script>
+    <script src="/js/highlight.pack.js?1712899628"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1712656919"></script>
-    <script src="/js/learn.js?1712656919"></script>
-    <script src="/js/hugo-learn.js?1712656919"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1712899628"></script>
+    <script src="/js/learn.js?1712899628"></script>
+    <script src="/js/hugo-learn.js?1712899628"></script>
 
-    <link href="/mermaid/mermaid.css?1712656919" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1712656919"></script>
+    <link href="/mermaid/mermaid.css?1712899628" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1712899628"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
